@@ -87,7 +87,7 @@
             "main": "projects/module1/src/test.ts",
             "polyfills": "projects/module1/src/polyfills.ts",
             "tsConfig": "projects/module1/tsconfig.spec.json",
-            "karmaConfig": "projects/module1/karma.conf.js",
+            "karmaConfig": "karma.conf.js",
             "assets": [
               "projects/module1/src/favicon.ico",
               "projects/module1/src/assets"
@@ -109,18 +109,6 @@
             "exclude": [
               "**/node_modules/**"
             ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/module1/e2e/protractor.conf.js",
-            "devServerTarget": "module1:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "module1:serve:production"
-            }
           }
         }
       }
@@ -209,7 +197,7 @@
             "main": "projects/module2/src/test.ts",
             "polyfills": "projects/module2/src/polyfills.ts",
             "tsConfig": "projects/module2/tsconfig.spec.json",
-            "karmaConfig": "projects/module2/karma.conf.js",
+            "karmaConfig": "karma.conf.js",
             "assets": [
               "projects/module2/src/favicon.ico",
               "projects/module2/src/assets"
@@ -232,20 +220,7 @@
               "**/node_modules/**"
             ]
           }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/module2/e2e/protractor.conf.js",
-            "devServerTarget": "module2:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "module2:serve:production"
-            }
-          }
         }
       }
-    }},
-  "defaultProject": "ng-tasks"
+    }}
 }
