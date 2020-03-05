@@ -226,5 +226,8 @@
       }
     }
   },
-  "defaultProject": "module1"
+  "defaultProject": "module1",
+  "cli": {
+    "analytics": false
+  }
 }

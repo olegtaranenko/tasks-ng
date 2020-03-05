@@ -1,7 +1,4 @@
-import {
-  Component,
-  Input, Output, EventEmitter,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 export interface IProduct {
   _id: string;
@@ -25,17 +22,14 @@ export interface IProductImage {
   source: string;
 }
 
-
 @Component({
   selector: 'app-shop-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.sass'],
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
   @Input()
   public product!: IProduct;
-  @Input()
-  public isOdd!: boolean;
 
   @Output()
   public addToCart = new EventEmitter();
