@@ -1,10 +1,14 @@
 #Modules 
- - Components and bindings
- - Write template directives  
- - Write structural directives  
- - Write custom pipes
- - Write interceptors and http query
- - make form 
- - custom form control
- - Make store 
- - Make entities 
+ 1. Интерполяция и связывание
+ - Директивы и пайпы
+ - Внедрение зависимостей   
+ - Навигация в приложении
+ - Формы и их валидация
+ - Свой элемент формы
+ - Базовая работа с NgRx
+ - Entity для упрощения CRUD в NgRx
+
+# Что покрываем и какие темы
+2) star-rating component 
+  - директивы по-умолчанию
+  
