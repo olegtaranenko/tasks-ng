@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProduct } from './card/card.component';
 
 const product = {
   _id: '5e4d5abd3829ab5fadc3c908',
@@ -26,10 +27,10 @@ const product = {
 })
 export class AppComponent {
   public product = product;
-  public chosenProduct;
+  public chosenProduct: IProduct | undefined;
   title = '1. Интерполяция и связывание';
 
-  public addProduct(p): void {
+  public addProduct(p: any): void {
     this.chosenProduct = p;
   }
 }

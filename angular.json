@@ -23,10 +23,7 @@
             "polyfills": "projects/module1/src/polyfills.ts",
             "tsConfig": "projects/module1/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "projects/module1/src/favicon.ico",
-              "projects/module1/src/assets"
-            ],
+            "assets": ["projects/module1/src/favicon.ico", "projects/module1/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/module1/src/styles.scss"
@@ -89,10 +86,7 @@
             "polyfills": "projects/module1/src/polyfills.ts",
             "tsConfig": "projects/module1/tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "projects/module1/src/favicon.ico",
-              "projects/module1/src/assets"
-            ],
+            "assets": ["projects/module1/src/favicon.ico", "projects/module1/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/module1/src/styles.scss"
@@ -108,9 +102,7 @@
               "projects/module1/tsconfig.spec.json",
               "projects/module1/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -135,13 +127,8 @@
             "polyfills": "projects/module2/src/polyfills.ts",
             "tsConfig": "projects/module2/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "projects/module2/src/favicon.ico",
-              "projects/module2/src/assets"
-            ],
-            "styles": [
-              "projects/module2/src/styles.scss"
-            ],
+            "assets": ["projects/module2/src/favicon.ico", "projects/module2/src/assets"],
+            "styles": ["projects/module2/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -200,13 +187,8 @@
             "polyfills": "projects/module2/src/polyfills.ts",
             "tsConfig": "projects/module2/tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "projects/module2/src/favicon.ico",
-              "projects/module2/src/assets"
-            ],
-            "styles": [
-              "projects/module2/src/styles.scss"
-            ],
+            "assets": ["projects/module2/src/favicon.ico", "projects/module2/src/assets"],
+            "styles": ["projects/module2/src/styles.scss"],
             "scripts": []
           }
         },
@@ -218,9 +200,7 @@
               "projects/module2/tsconfig.spec.json",
               "projects/module2/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -245,13 +225,8 @@
             "polyfills": "projects/module5/src/polyfills.ts",
             "tsConfig": "projects/module5/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "projects/module5/src/favicon.ico",
-              "projects/module5/src/assets"
-            ],
-            "styles": [
-              "projects/module5/src/styles.scss"
-            ],
+            "assets": ["projects/module5/src/favicon.ico", "projects/module5/src/assets"],
+            "styles": ["projects/module5/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -309,13 +284,8 @@
             "polyfills": "projects/module5/src/polyfills.ts",
             "tsConfig": "projects/module5/tsconfig.spec.json",
             "karmaConfig": "projects/module5/karma.conf.js",
-            "assets": [
-              "projects/module5/src/favicon.ico",
-              "projects/module5/src/assets"
-            ],
-            "styles": [
-              "projects/module5/src/styles.scss"
-            ],
+            "assets": ["projects/module5/src/favicon.ico", "projects/module5/src/assets"],
+            "styles": ["projects/module5/src/styles.scss"],
             "scripts": []
           }
         },
@@ -327,9 +297,7 @@
               "projects/module5/tsconfig.spec.json",
               "projects/module5/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -346,41 +314,37 @@
         }
       }
     },
-    "module3": {
+
+    "module4": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "scss"
         }
       },
-      "root": "projects/module3",
-      "sourceRoot": "projects/module3/src",
+      "root": "projects/module4",
+      "sourceRoot": "projects/module4/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/module3",
-            "index": "projects/module3/src/index.html",
-            "main": "projects/module3/src/main.ts",
-            "polyfills": "projects/module3/src/polyfills.ts",
-            "tsConfig": "projects/module3/tsconfig.app.json",
+            "outputPath": "dist/module4",
+            "index": "projects/module4/src/index.html",
+            "main": "projects/module4/src/main.ts",
+            "polyfills": "projects/module4/src/polyfills.ts",
+            "tsConfig": "projects/module4/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "projects/module3/src/favicon.ico",
-              "projects/module3/src/assets"
-            ],
-            "styles": [
-              "projects/module3/src/styles.sass"
-            ],
+            "assets": ["projects/module4/src/favicon.ico", "projects/module4/src/assets"],
+            "styles": ["projects/module4/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/module3/src/environments/environment.ts",
-                  "with": "projects/module3/src/environments/environment.prod.ts"
+                  "replace": "projects/module4/src/environments/environment.ts",
+                  "with": "projects/module4/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -409,34 +373,29 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "module3:build"
+            "browserTarget": "module4:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "module3:build:production"
+              "browserTarget": "module4:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "module3:build"
+            "browserTarget": "module4:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/module3/src/test.ts",
-            "polyfills": "projects/module3/src/polyfills.ts",
-            "tsConfig": "projects/module3/tsconfig.spec.json",
-            "karmaConfig": "projects/module3/karma.conf.js",
-            "assets": [
-              "projects/module3/src/favicon.ico",
-              "projects/module3/src/assets"
-            ],
-            "styles": [
-              "projects/module3/src/styles.sass"
-            ],
+            "main": "projects/module4/src/test.ts",
+            "polyfills": "projects/module4/src/polyfills.ts",
+            "tsConfig": "projects/module4/tsconfig.spec.json",
+            "karmaConfig": "projects/module4/karma.conf.js",
+            "assets": ["projects/module4/src/favicon.ico", "projects/module4/src/assets"],
+            "styles": ["projects/module4/src/styles.scss"],
             "scripts": []
           }
         },
@@ -444,24 +403,22 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/module3/tsconfig.app.json",
-              "projects/module3/tsconfig.spec.json",
-              "projects/module3/e2e/tsconfig.json"
+              "projects/module4/tsconfig.app.json",
+              "projects/module4/tsconfig.spec.json",
+              "projects/module4/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/module3/e2e/protractor.conf.js",
-            "devServerTarget": "module3:serve"
+            "protractorConfig": "projects/module4/e2e/protractor.conf.js",
+            "devServerTarget": "module4:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "module3:serve:production"
+              "devServerTarget": "module4:serve:production"
             }
           }
         }
