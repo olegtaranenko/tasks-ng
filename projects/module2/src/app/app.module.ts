@@ -5,18 +5,13 @@ import { AppComponent } from './app.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CardComponent } from './card/card.component';
+import { ImgUrlPipe } from './card/img-url.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    StarRatingComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatIconModule
-  ],
+  declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe],
+  imports: [BrowserModule, BrowserAnimationsModule, MatIconModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
