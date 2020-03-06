@@ -9,21 +9,27 @@ describe('Stars rating component', () => {
   let component: StarRatingComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        MatIconModule
-      ],
-      declarations: [
-        StarRatingComponent
-      ],
+      imports: [MatIconModule],
+      declarations: [StarRatingComponent],
     }).compileComponents();
     fixture = TestBed.createComponent(StarRatingComponent);
     component = fixture.componentInstance;
   }));
-  it('check precision 0 - 0.25', () => {
-    component.feedbackRate = 1.12412;
+  it('check null value', () => {
+    component.rate = null;
     fixture.detectChanges();
-    const stars: DebugElement[] = fixture.debugElement
-      .queryAll(By.css('mat-icon'));
+    const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes['gold-star']).toBeFalsy();
+    expect(stars[1].classes['gold-star']).toBeFalsy();
+    expect(stars[2].classes['gold-star']).toBeFalsy();
+    expect(stars[3].classes['gold-star']).toBeFalsy();
+    expect(stars[4].classes['gold-star']).toBeFalsy();
+  });
+  it('check precision 0 - 0.25', () => {
+    component.rate = 1.12412;
+    fixture.detectChanges();
+    const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));
     expect(stars[0].classes['gold-star']).toBeTruthy();
     expect(stars[1].classes['gold-star']).toBeFalsy();
     expect(stars[2].classes['gold-star']).toBeFalsy();
@@ -31,10 +37,9 @@ describe('Stars rating component', () => {
     expect(stars[4].classes['gold-star']).toBeFalsy();
   });
   it('check precision 0.25 < 0.75', () => {
-    component.feedbackRate = 2.423235;
+    component.rate = 2.423235;
     fixture.detectChanges();
-    const stars: DebugElement[] = fixture.debugElement
-      .queryAll(By.css('mat-icon'));
+    const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));
     expect(stars[0].classes['gold-star']).toBeTruthy();
     expect(stars[1].classes['gold-star']).toBeTruthy();
     expect(stars[2].classes['gold-star']).toBeTruthy();
@@ -42,10 +47,9 @@ describe('Stars rating component', () => {
     expect(stars[4].classes['gold-star']).toBeFalsy();
   });
   it('check precision > 0.75', () => {
-    component.feedbackRate = 3.76453;
+    component.rate = 3.76453;
     fixture.detectChanges();
-    const stars: DebugElement[] = fixture.debugElement
-      .queryAll(By.css('mat-icon'));
+    const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));
     expect(stars[0].classes['gold-star']).toBeTruthy();
     expect(stars[1].classes['gold-star']).toBeTruthy();
     expect(stars[2].classes['gold-star']).toBeTruthy();

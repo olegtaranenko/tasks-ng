@@ -2,6 +2,12 @@
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 5px;
+  margin: 10px;
+}
+.rate {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 .card-body {
   display: flex;
@@ -20,7 +26,7 @@
 }
 .product-add-to-cart {
   color: darkseagreen;
-  margin: 10px 0 0 30px;
+  margin: 6px 0 0 18px;
   font-size: 29px;
 }
 .product-add-to-cart:hover {
@@ -33,8 +39,8 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  width: 50%;
-  height: auto;
+  width: auto;
+  height: 180px !important;
 }
 .card-prodact .card-body .price-wrap {
   display: flex;

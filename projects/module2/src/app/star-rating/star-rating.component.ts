@@ -13,32 +13,35 @@ export enum StarsIcon {
 })
 export class StarRatingComponent {
   @Input()
-  public set feedbackRate(rate: number) {
+  public set rate(rate: number | null) {
+    if (rate === null) {
+      rate = 0;
+    }
     const integerPart = Math.floor(rate);
     const doublePart = rate % 1;
     for (let i = 0; i < this.starsCount; i++) {
       if (i > integerPart) {
-        this.stars.push({icon: StarsIcon.BORDERED, active: false});
+        this.stars.push({ icon: StarsIcon.BORDERED, active: false });
         continue;
       }
       if (i < integerPart) {
-        this.stars.push({icon: StarsIcon.FILLED, active: true});
+        this.stars.push({ icon: StarsIcon.FILLED, active: true });
         continue;
       }
-      if (0 < doublePart && doublePart < 0.25) {
-        this.stars.push({icon: StarsIcon.BORDERED, active: false});
+      if (0 <= doublePart && doublePart < 0.25) {
+        this.stars.push({ icon: StarsIcon.BORDERED, active: false });
         continue;
       }
       if (doublePart > 0.25 && doublePart < 0.75) {
-        this.stars.push({icon: StarsIcon.HALF, active: true});
+        this.stars.push({ icon: StarsIcon.HALF, active: true });
         continue;
       }
       if (doublePart >= 0.75) {
-        this.stars.push({icon: StarsIcon.FILLED, active: true});
+        this.stars.push({ icon: StarsIcon.FILLED, active: true });
       }
     }
-  };
+  }
 
-  public stars = [];
+  public stars: { icon: StarsIcon; active: boolean }[] = [];
   public starsCount = 5;
 }
