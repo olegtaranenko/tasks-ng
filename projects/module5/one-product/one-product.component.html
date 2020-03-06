@@ -1,0 +1,64 @@
+<div *ngIf="product$ | async as product" class="container one-product-wrap">
+  <div class="title">
+    <a>{{ product.name }}</a>
+  </div>
+  <div class="one-product">
+    <div class="main">
+      <div class="main-cont">
+        <div class="main-cont-info">
+          <img
+            class="main-cont-info-img"
+            [src]="product.images | imgUrl"
+            [alt]="product.name"
+          />
+          <div class="main-cont-info-price">
+            € {{ product.price }}
+            <button
+              class="main-cont-info-price-btn"
+              (click)="addProduct(product)"
+            >
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+          </div>
+          <ng-shop-star-rating [feedbackRate]="product.rating | rate">
+          </ng-shop-star-rating>
+        </div>
+        <div class="main-cont-description">
+          <div class="main-cont-description-descr">
+            <span>Описание</span>
+            <p>{{ product.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-comments">
+        <div class="main-comments-header">
+          <span>Отзывы покупателей</span>
+          <button (click)="addFeedback()" class="main-comments-header-btn">
+            Написать отзыв
+          </button>
+        </div>
+
+        <div
+          *ngFor="let feedback of (product$ | async)?.feedbacks"
+          class="main-comments-review"
+        >
+          <div class="main-comments-review-text">
+            <ng-shop-star-rating
+              [feedbackRate]="feedback.rate | rate"
+            ></ng-shop-star-rating>
+            {{ feedback.description }}
+            <ul class="main-comments-review-text-pluses">
+              Достоинства:
+              <li>{{ feedback.advantages }}</li>
+            </ul>
+            <ul class="main-comments-review-text-minuses">
+              Недостатки:
+              <li>{{ feedback.limitations }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

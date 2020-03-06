@@ -1,0 +1,12 @@
+<div class="rating">
+  <div *ngFor="let star of stars; let i = index" class="rating-star">
+    <mat-icon
+      [ngClass]="{ selected: highlight(i) }"
+      (click)="starSelect(i + 1)"
+      (mouseenter)="starMouseEnter(i)"
+      (mouseleave)="starMouseLeave()"
+      class="rating-star-icon"
+      >star
+    </mat-icon>
+  </div>
+</div>

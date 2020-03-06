@@ -224,7 +224,131 @@
           }
         }
       }
+    },
+    "module5": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/module5",
+      "sourceRoot": "projects/module5/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/module5",
+            "index": "projects/module5/src/index.html",
+            "main": "projects/module5/src/main.ts",
+            "polyfills": "projects/module5/src/polyfills.ts",
+            "tsConfig": "projects/module5/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/module5/src/favicon.ico",
+              "projects/module5/src/assets"
+            ],
+            "styles": [
+              "projects/module5/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/module5/src/environments/environment.ts",
+                  "with": "projects/module5/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "module5:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "module5:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "module5:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/module5/src/test.ts",
+            "polyfills": "projects/module5/src/polyfills.ts",
+            "tsConfig": "projects/module5/tsconfig.spec.json",
+            "karmaConfig": "projects/module5/karma.conf.js",
+            "assets": [
+              "projects/module5/src/favicon.ico",
+              "projects/module5/src/assets"
+            ],
+            "styles": [
+              "projects/module5/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/module5/tsconfig.app.json",
+              "projects/module5/tsconfig.spec.json",
+              "projects/module5/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/module5/e2e/protractor.conf.js",
+            "devServerTarget": "module5:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "module5:serve:production"
+            }
+          }
+        }
+      }
     }
   },
-  "defaultProject": "module1"
+  "defaultProject": "module1",
+  "cli": {
+    "analytics": false
+  }
 }
