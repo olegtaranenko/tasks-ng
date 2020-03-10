@@ -2,13 +2,13 @@ export interface IProduct {
   _id: string;
   name: string;
   description: string;
-  feedbacks?: IFeedback;
   price: number;
   status: boolean;
   images: IProductImage[];
-  rating: number | null;
-  feedbacksCount: number | null;
-  subCategory: string;
+  feedbacksCount: number;
+  rating?: number | null;
+  feedbacks?: IFeedback;
+  subCategory?: string;
 }
 
 export interface IFeedback {
@@ -17,6 +17,7 @@ export interface IFeedback {
   limitations: string;
   description: string;
 }
+
 export interface IProductImage {
   url: string;
   source: string;
@@ -241,3 +242,4 @@ export const products: IProduct[] = [
     subCategory: '5e4d5abe3829ab5fadc40666',
   },
 ];
+

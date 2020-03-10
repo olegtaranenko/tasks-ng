@@ -49,7 +49,7 @@
       </g>
     </svg>
 
-    <span>{{ title }}</span>
+    <span>{{title}}</span>
 
     <svg
       id="rocket-smoke"
@@ -73,7 +73,7 @@
     <div [formGroup]="feedbackForm" class="feedback content-block">
       <h2 class="feedback-title">Оставить отзыв</h2>
       <div class="feedback-inputs">
-        <ng-shop-rating formControlName="rate"></ng-shop-rating>
+        <app-rating formControlName="rate"></app-rating>
         <label class="feedback-inputs-label">
           Достоинства
           <div class="form-valid" *ngIf="getField('advantages')?.errors?.minlength">

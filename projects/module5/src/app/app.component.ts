@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'module5';
+  public title = '5. Формы и свои элементы форм';
   @Input()
   public set feedback(value: any) {
     if (!value) {
@@ -15,7 +15,7 @@ export class AppComponent {
     }
     this.feedbackForm.patchValue(value);
   }
-  constructor(private fb: FormBuilder) {}
+  public constructor(private fb: FormBuilder) {}
   public chosenProduct: any;
   public feedbackForm: FormGroup = this.fb.group({
     advantages: ['', [Validators.required, Validators.minLength(10)]],
@@ -31,7 +31,4 @@ export class AppComponent {
   public getField(name: string) {
     return this.feedbackForm.get(name);
   }
-  // ngDoCheck() {
-  //   this.feedbackForm.touched;
-  // }
 }

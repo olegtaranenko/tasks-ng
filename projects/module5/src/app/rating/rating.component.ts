@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  // tslint:disable-next-line: component-selector
-  selector: 'ng-shop-rating',
+  selector: 'app-rating',
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.sass'],
   providers: [
