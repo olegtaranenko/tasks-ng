@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IProduct } from '../products.service';
 
 @Component({
@@ -9,9 +9,5 @@ import { IProduct } from '../products.service';
 export class CardComponent {
   @Input()
   public product!: IProduct;
-
-  @Output()
-  public addToCart = new EventEmitter();
-
   public addProduct(): void {}
 }
