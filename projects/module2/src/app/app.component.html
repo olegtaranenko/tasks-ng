@@ -68,8 +68,9 @@
       />
     </svg>
   </div>
-  <div class="products-wrap">
-    <div class="products">
+
+  <div class="content-wrap products-wrap">
+    <div class="content-block products">
       <div class="product" *ngFor="let product of products">
         <app-shop-card [product]="product" (addToCart)="addProduct(product)"> </app-shop-card>
       </div>
