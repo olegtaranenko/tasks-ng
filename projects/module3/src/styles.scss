@@ -1,3 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 :host {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -34,8 +43,8 @@ p {
   flex-wrap: wrap;
 }
 .content-block {
-  width: 49%;
-  border: 1px #ccc solid;
+  width: 100%;
+  // border: 1px #ccc solid;
   padding: 15px;
   box-sizing: border-box;
   min-width: 285px;
@@ -64,20 +73,16 @@ p {
   color: white;
   font-weight: 600;
 }
-
 .toolbar img {
   margin: 0 16px;
 }
-
 .toolbar #twitter-logo {
   height: 40px;
   margin: 0 16px;
 }
-
 .toolbar #twitter-logo:hover {
   opacity: 0.8;
 }
-
 .content {
   display: flex;
   margin: 82px auto 32px;
@@ -86,27 +91,22 @@ p {
   flex-direction: column;
   align-items: center;
 }
-
 svg.material-icons {
   height: 24px;
   width: auto;
 }
-
 svg.material-icons:not(:last-child) {
   margin-right: 8px;
 }
-
 .card svg.material-icons path {
   fill: #888;
 }
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 16px;
 }
-
 .card {
   border-radius: 4px;
   border: 1px solid #eee;
@@ -122,16 +122,13 @@ svg.material-icons:not(:last-child) {
   transition: all 0.2s ease-in-out;
   line-height: 24px;
 }
-
 .card-container .card:not(:last-child) {
   margin-right: 0;
 }
-
 .card.card-small {
   height: 16px;
   width: 168px;
 }
-
 .card-container .card:not(.highlight-card) {
   cursor: pointer;
 }

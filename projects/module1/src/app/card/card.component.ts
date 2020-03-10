@@ -7,7 +7,7 @@ export interface IProduct {
   feedbacks?: IFeedback;
   price: number;
   status: boolean;
-  images?: IProductImage[] | undefined;
+  images: any;
   rating?: number | undefined;
 }
 
