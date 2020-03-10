@@ -7,7 +7,7 @@ import { ProductsService, IProduct } from './products.service';
 })
 export class AppComponent implements OnInit {
   public products: IProduct[] = [];
-  title = 'module3';
+  title = '4. Cервисы и Http протокол';
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {

@@ -1,31 +1,61 @@
-import { TestBed, async } from '@angular/core/testing';
+import { InterceptorService } from './interceptor.service';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+import { CardComponent } from './card/card.component';
+import { ImgUrlPipe } from './card/img-url.pipe';
+import { BASE_URL_TOKEN } from './config';
+import { ProductsService } from './products.service';
+import { environment } from '../environments/environment';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-describe('AppComponent', () => {
+describe('[Module 3] general application tests', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let app: AppComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe],
+      imports: [HttpClientModule],
+      providers: [
+        ProductsService,
+        {
+          provide: BASE_URL_TOKEN,
+          useValue: environment.baseUrl,
+        },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: InterceptorService,
+          multi: true,
+        },
       ],
-    }).compileComponents();
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
+    fixture.detectChanges();
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'module3'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('module3');
+  it(`should have title `, () => {
+    const title = fixture.debugElement.query(By.css('.toolbar span'));
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = title.childNodes;
+    expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('module3 app is running!');
+  it('should render right subtitle', () => {
+    const subTitle = fixture.debugElement.query(By.css('.content span'));
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = subTitle.childNodes;
+    expect(textContent).toContain('4. Cервисы и Http протокол');
   });
 });
