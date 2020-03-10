@@ -32,4 +32,16 @@ export class ProductsService {
   public getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(`/products`);
   }
+  // public prepareQuery(source$: Observable<any>): Observable<any> {
+  //   return source$.pipe(
+  //     map(searchQuery => {
+  //       return Object.entries(searchQuery).reduce((obj, [key, value]) => {
+  //         if (!value) {
+  //           return obj;
+  //         }
+  //         return { ...obj, [key]: value };
+  //       }, {});
+  //     })
+  //   );
+  // }
 }
