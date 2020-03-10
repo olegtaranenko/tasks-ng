@@ -49,7 +49,7 @@
       </g>
     </svg>
 
-    <span>{{title}}</span>
+    <span>{{ title }}</span>
 
     <svg
       id="rocket-smoke"
@@ -68,47 +68,14 @@
       />
     </svg>
   </div>
-
+  <!-- Content -->
   <div class="content-wrap">
-    <div [formGroup]="feedbackForm" class="feedback content-block">
-      <h2 class="feedback-title">Оставить отзыв</h2>
-      <div class="feedback-inputs">
-        <app-rating formControlName="rate"></app-rating>
-        <label class="feedback-inputs-label">
-          Достоинства
-          <div class="form-valid" *ngIf="getField('advantages')?.errors?.minlength">
-            Описание премуществ товара должно состоять минимум из 10 символов
-          </div>
-        </label>
-
-        <input formControlName="advantages" type="text" />
-        <label class="feedback-inputs-label"
-          >Недостатки
-          <div class="form-valid" *ngIf="getField('limitations')?.errors?.minlength">
-            Описание недостатков товара должны состоять минимум из 10 символов
-          </div>
-        </label>
-
-        <input formControlName="limitations" type="text" />
-        <label class="feedback-inputs-label">
-          Комментарий
-          <div class="form-valid-area-textarea" *ngIf="getField('description')?.errors?.minlength">
-            Отзыв о товаре должен состоять минимум из 10 символов
-          </div>
-        </label>
-
-        <textarea formControlName="description" type="text"></textarea>
-      </div>
-      <div class="feedback-btn">
-        <button class="feedback-btn-control" (click)="save(feedbackForm.value)" [disabled]="feedbackForm.invalid">
-          Оставить отзыв
-        </button>
-      </div>
-    </div>
+    <app-feedback-form class="content-block" (createFeedback)="getFormInfo($event)"></app-feedback-form>
     <div class="terminal">
       <pre>
-        {{ chosenProduct | json }}
-      </pre>
+            {{ feedbackFormInfo | json }}
+          </pre
+      >
     </div>
   </div>
 </div>
