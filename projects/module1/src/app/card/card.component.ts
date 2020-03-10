@@ -4,11 +4,11 @@ export interface IProduct {
   _id: string;
   name: string;
   description: string;
-  feedbacks?: IFeedback;
   price: number;
   status: boolean;
-  images?: IProductImage[] | undefined;
+  images: IProductImage[];
   rating?: number | undefined;
+  feedbacks?: IFeedback;
 }
 
 export interface IFeedback {
@@ -17,6 +17,7 @@ export interface IFeedback {
   limitations: string;
   description: string;
 }
+
 export interface IProductImage {
   url: string;
   source: string;
@@ -32,7 +33,7 @@ export class CardComponent {
   public product!: IProduct;
 
   @Output()
-  public addToCart = new EventEmitter();
+  public addToCart: EventEmitter<void> = new EventEmitter();
 
   public addProduct(): void {
     this.addToCart.emit();
