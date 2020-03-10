@@ -16,7 +16,7 @@ export class AppComponent {
     this.feedbackForm.patchValue(value);
   }
   constructor(private fb: FormBuilder) {}
-  public chosenProduct;
+  public chosenProduct: any;
   public feedbackForm: FormGroup = this.fb.group({
     advantages: ['', [Validators.required, Validators.minLength(10)]],
     limitations: ['', [Validators.required, Validators.minLength(10)]],
@@ -31,7 +31,7 @@ export class AppComponent {
   public getField(name: string) {
     return this.feedbackForm.get(name);
   }
-  ngDoCheck() {
-    this.feedbackForm.touched;
-  }
+  // ngDoCheck() {
+  //   this.feedbackForm.touched;
+  // }
 }

@@ -128,11 +128,7 @@
             "tsConfig": "projects/module2/tsconfig.app.json",
             "aot": false,
             "assets": ["projects/module2/src/favicon.ico", "projects/module2/src/assets"],
-<<<<<<< HEAD
-            "styles": ["projects/module2/src/styles.sass"],
-=======
             "styles": ["projects/module2/src/styles.scss"],
->>>>>>> 59255a8caf0065bfb5d3762470739a6d7bc5bceb
             "scripts": []
           },
           "configurations": {
@@ -192,11 +188,7 @@
             "tsConfig": "projects/module2/tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["projects/module2/src/favicon.ico", "projects/module2/src/assets"],
-<<<<<<< HEAD
-            "styles": ["projects/module2/src/styles.sass"],
-=======
             "styles": ["projects/module2/src/styles.scss"],
->>>>>>> 59255a8caf0065bfb5d3762470739a6d7bc5bceb
             "scripts": []
           }
         },
@@ -217,7 +209,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "scss"
         }
       },
       "root": "projects/module5",
@@ -234,11 +226,7 @@
             "tsConfig": "projects/module5/tsconfig.app.json",
             "aot": true,
             "assets": ["projects/module5/src/favicon.ico", "projects/module5/src/assets"],
-<<<<<<< HEAD
-            "styles": ["projects/module5/src/styles.sass"],
-=======
             "styles": ["projects/module5/src/styles.scss"],
->>>>>>> 59255a8caf0065bfb5d3762470739a6d7bc5bceb
             "scripts": []
           },
           "configurations": {
@@ -297,11 +285,7 @@
             "tsConfig": "projects/module5/tsconfig.spec.json",
             "karmaConfig": "projects/module5/karma.conf.js",
             "assets": ["projects/module5/src/favicon.ico", "projects/module5/src/assets"],
-<<<<<<< HEAD
-            "styles": ["projects/module5/src/styles.sass"],
-=======
             "styles": ["projects/module5/src/styles.scss"],
->>>>>>> 59255a8caf0065bfb5d3762470739a6d7bc5bceb
             "scripts": []
           }
         },
