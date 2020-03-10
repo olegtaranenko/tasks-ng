@@ -1,4 +1,4 @@
-.card-prodact {
+.card-product {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 5px;
@@ -21,7 +21,7 @@
   font-size: 18px;
   text-decoration: none !important;
 }
-.card-prodact .card-body .price-text {
+.card-product .card-body .price-text {
   margin: 16px 0 0 0;
 }
 .product-add-to-cart {
@@ -42,7 +42,7 @@
   width: auto;
   height: 180px !important;
 }
-.card-prodact .card-body .price-wrap {
+.card-product .card-body .price-wrap {
   display: flex;
 }
 

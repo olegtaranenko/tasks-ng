@@ -2,20 +2,22 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
-import { product } from '../../mocks/products';
+import { products } from '../../mocks/products';
+import { ImgUrlPipe } from './img-url.pipe';
+import { StarRatingComponent } from '../star-rating/star-rating.component';
 
-describe('[Module 1] Card component', () => {
+describe('[Module 2] Card component', () => {
   let fixture: ComponentFixture<CardComponent>;
   let component: CardComponent;
   let addToCartSpy: jasmine.Spy;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CardComponent],
+      declarations: [CardComponent, ImgUrlPipe, StarRatingComponent],
       imports: [MatIconModule]
     });
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
-    component.product = product;
+    component.product = products[0];
     fixture.detectChanges();
     spyOn(component, 'addProduct')
       .and
@@ -30,7 +32,7 @@ describe('[Module 1] Card component', () => {
   });
 
   it('Should have right cart icon ', () => {
-    const icon = fixture.debugElement.query(By.directive(MatIcon));
+    const icon = fixture.debugElement.query(By.css('.product-add-to-cart'));
     expect(icon).toBeTruthy();
     const [{nativeNode}] = icon.childNodes;
     expect(nativeNode.textContent).toEqual('add_shopping_cart');
@@ -66,5 +68,10 @@ describe('[Module 1] Card component', () => {
       .toHaveBeenCalledBefore(addToCartSpy);
     expect(component.addToCart.emit)
       .toHaveBeenCalled();
+  });
+
+  it('should include app-star-rating component', () => {
+    const ratingComponent = fixture.debugElement.query(By.directive(StarRatingComponent));
+    expect(ratingComponent).toBeTruthy();
   });
 });

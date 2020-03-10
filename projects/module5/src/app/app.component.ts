@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public title = '1. Формы и свои элементы форм';
+  public title = '5. Формы и свои элементы форм';
   @Input()
   public set feedback(value: any) {
     if (!value) {
