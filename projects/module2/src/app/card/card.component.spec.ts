@@ -4,7 +4,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 import { products } from '../../mocks/products';
 import { ImgUrlPipe } from './img-url.pipe';
-import { StarRatingComponent } from '../star-rating/star-rating.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 describe('[Module 2] Card component', () => {
   let fixture: ComponentFixture<CardComponent>;

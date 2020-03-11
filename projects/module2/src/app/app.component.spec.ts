@@ -4,7 +4,7 @@ import { CardComponent } from './card/card.component';
 import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 import { ImgUrlPipe } from './card/img-url.pipe';
-import { StarRatingComponent } from './star-rating/star-rating.component';
+import { StarRatingComponent } from './card/star-rating/star-rating.component';
 
 describe('[Module 2] general application tests', () => {
   let fixture: ComponentFixture<AppComponent>;
