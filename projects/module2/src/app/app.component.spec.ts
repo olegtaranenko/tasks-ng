@@ -12,7 +12,7 @@ describe('[Module 2] general application tests', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent, CardComponent, ImgUrlPipe, StarRatingComponent],
-      imports: [MatIconModule]
+      imports: [MatIconModule],
     });
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
@@ -25,13 +25,21 @@ describe('[Module 2] general application tests', () => {
 
   it(`should have title `, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
-    const [{nativeNode: {textContent}}] = title.childNodes;
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = title.childNodes;
     expect(textContent).toEqual('Курс по Angular');
   });
 
   it('should render right subtitle', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
-    const [{nativeNode: {textContent}}] = subTitle.childNodes;
-    expect(textContent).toContain('2. Директивы и пайпы');
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = subTitle.childNodes;
+    expect(textContent.trim()).toContain('2. Директивы и пайпы');
   });
 });

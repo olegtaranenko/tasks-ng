@@ -1,9 +1,9 @@
 <div class="card-product">
   <div class="card-img-wrap">
-    <img class="card-img-top" [src]="product.images | imgUrl" [alt]="product.name"/>
+    <img class="card-img-top" [src]="product.images | imgUrl" [alt]="product.name" />
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{product.name}}</h5>
+    <h5 class="card-title">{{ product.name }}</h5>
     <div class="rate">
       <div class="rate-amount ml-2">
         <app-star-rating [rate]="product.rating"></app-star-rating>
