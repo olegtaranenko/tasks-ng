@@ -5,13 +5,13 @@ export interface IProduct {
   _id: string;
   name: string;
   description: string;
-  feedbacks?: IFeedback;
   price: number;
   status: boolean;
+  feedbacksCount: number;
   images: IProductImage[];
-  rating: number | null;
-  feedbacksCount: number | null;
-  subCategory: string;
+  rating?: number | null;
+  feedbacks?: IFeedback;
+  subCategory?: string;
 }
 
 export interface IFeedback {
@@ -32,16 +32,4 @@ export class ProductsService {
   public getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(`/products`);
   }
-  // public prepareQuery(source$: Observable<any>): Observable<any> {
-  //   return source$.pipe(
-  //     map(searchQuery => {
-  //       return Object.entries(searchQuery).reduce((obj, [key, value]) => {
-  //         if (!value) {
-  //           return obj;
-  //         }
-  //         return { ...obj, [key]: value };
-  //       }, {});
-  //     })
-  //   );
-  // }
 }

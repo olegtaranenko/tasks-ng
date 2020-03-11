@@ -2,7 +2,7 @@ import { InterceptorService } from './interceptor.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
-import { StarRatingComponent } from './star-rating/star-rating.component';
+import { StarRatingComponent } from './card/star-rating/star-rating.component';
 import { CardComponent } from './card/card.component';
 import { ImgUrlPipe } from './card/img-url.pipe';
 import { BASE_URL_TOKEN } from './config';
@@ -56,6 +56,6 @@ describe('[Module 3] general application tests', () => {
         nativeNode: { textContent },
       },
     ] = subTitle.childNodes;
-    expect(textContent).toContain('4. Cервисы и Http протокол');
+    expect(textContent.trim()).toContain('3. Cервисы и Http протокол');
   });
 });

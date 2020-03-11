@@ -5,8 +5,9 @@ export interface IProduct {
   price: number;
   status: boolean;
   images: IProductImage[];
-  rating?: number | undefined;
+  rating?: number | null;
   feedbacks?: IFeedback;
+  subCategory?: string;
 }
 
 export interface IFeedback {

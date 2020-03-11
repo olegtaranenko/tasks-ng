@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductsService } from './products.service';
 import { CardComponent } from './card/card.component';
-import { StarRatingComponent } from './star-rating/star-rating.component';
+import { StarRatingComponent } from './card/star-rating/star-rating.component';
 import { ImgUrlPipe } from './card/img-url.pipe';
 import { BASE_URL_TOKEN } from './config';
 import { environment } from '../environments/environment';
