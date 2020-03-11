@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "start:module1": "npm  start -- module1",
-    "test:module1": "npm run test -- module1"
+    "test:module1": "npm run test -- module1",
+    "start:module2": "npm  start -- module2",
+    "test:module2": "npm run test -- module2"
   },
   "private": true,
   "dependencies": {

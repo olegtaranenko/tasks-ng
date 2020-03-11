@@ -8,9 +8,9 @@
 
 Для запуска окружения непрерывной разработки выполните команду
 ```bash
-npm run start:module1
+npm run start:module2
 ```
 Для проверки своего решения выполните 
 ```bash
-npm run test:module1
+npm run test:module2
 ```
