@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "start:module1": "npm  start -- module1",
+    "test:module1": "npm run test -- module1"
   },
   "private": true,
   "dependencies": {

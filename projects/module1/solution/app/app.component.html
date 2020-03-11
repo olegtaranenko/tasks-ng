@@ -1,0 +1,15 @@
+<!-- General content - Toolbar-->
+<div class="content" role="main">
+  <div class="card highlight-card card-small">
+    <!-- General content-->
+  </div>
+
+  <div class="content-wrap">
+    <div class="content-block">
+      <app-shop-card [product]="product" (addToCart)="addProduct(product)"></app-shop-card>
+    </div>
+    <div class="terminal">
+      <pre>{{ chosenProduct | json }}</pre>
+    </div>
+  </div>
+</div>

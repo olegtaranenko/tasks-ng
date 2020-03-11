@@ -1,4 +1,3 @@
-<!-- Toolbar -->
 <div class="toolbar" role="banner">
   <img
     width="40"
@@ -10,7 +9,6 @@
 </div>
 
 <div class="content" role="main">
-  <!-- Highlight Card -->
   <div class="card highlight-card card-small">
     <svg
       id="rocket"
@@ -71,7 +69,7 @@
 
   <div class="content-wrap">
     <div class="content-block">
-      <app-shop-card [product]="product" (addToCart)="addProduct(product)"> </app-shop-card>
+      <app-shop-card [product]="product" (addToCart)="addProduct(product)"></app-shop-card>
     </div>
     <div class="terminal">
       <pre>{{ chosenProduct | json }}</pre>
