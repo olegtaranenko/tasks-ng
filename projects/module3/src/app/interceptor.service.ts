@@ -8,16 +8,12 @@ export interface IRes {
   data: any;
   error?: string;
 }
-// tslint:disable-next-line: no-inferrable-types
-const accessToken: string =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN2ZXRhMTEiLCJpYXQiOjE1ODIyMDA1OTl9.lP9t6L5bp4tH3vSY_LQP5mBGRV307PL5LoLTC6ziLx4';
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
   constructor(@Inject(BASE_URL_TOKEN) private _baseUrl: string) {}
 
   public intercept<T extends IRes>(req: HttpRequest<T>, next: HttpHandler): Observable<HttpResponse<T>> {
     let headers: HttpHeaders = req.headers.append('Content-Type', 'application/json');
-    headers = headers.append('Authorization', `Bearer ${accessToken}`);
     const jsonReq: HttpRequest<T> = req.clone({
       headers,
       url: `${this._baseUrl}${req.url}`,

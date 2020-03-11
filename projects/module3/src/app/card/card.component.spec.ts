@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
-import { products } from '../../mocks/products';
 import { ImgUrlPipe } from './img-url.pipe';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { products } from '../../mocks/products';
 
-describe('[Module 2] Card component', () => {
+describe('[Module 3] Card component', () => {
   let fixture: ComponentFixture<CardComponent>;
   let component: CardComponent;
   let addToCartSpy: jasmine.Spy;
@@ -44,6 +44,7 @@ describe('[Module 2] Card component', () => {
     expect(imgEl.attributes.src).toEqual(url);
     expect(imgEl.attributes.alt).toEqual(name);
   });
+
   it('should have right bindings for title', () => {
     const titleEL = fixture.debugElement.query(By.css('.card-title'));
     expect(titleEL).toBeTruthy();

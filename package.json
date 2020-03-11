@@ -10,7 +10,13 @@
     "start:module1": "npm  start -- module1",
     "test:module1": "npm run test -- module1",
     "start:module2": "npm  start -- module2",
-    "test:module2": "npm run test -- module2"
+    "test:module2": "npm run test -- module2",
+    "start:module3": "npm  start -- module3",
+    "test:module3": "npm run test -- module3",
+    "start:module4": "npm  start -- module4",
+    "test:module4": "npm run test -- module4",
+    "start:module5": "npm  start -- module5",
+    "test:module5": "npm run test -- module5"
   },
   "private": true,
   "dependencies": {
