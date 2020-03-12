@@ -20,13 +20,21 @@ describe('[Module 4] general application tests', () => {
 
   it(`should have title `, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
-    const [{nativeNode: {textContent}}] = title.childNodes;
-    expect(textContent).toEqual('Курс по Angular');
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = title.childNodes;
+    expect(textContent.trim()).toEqual('Курс по Angular');
   });
 
   it('should render right subtitle', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
-    const [{nativeNode: {textContent}}] = subTitle.childNodes;
-    expect(textContent).toContain('4. Cервисы и Http протоко');
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = subTitle.childNodes;
+    expect(textContent.trim()).toContain('4. Формы и свои элементы форм');
   });
 });

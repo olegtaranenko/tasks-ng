@@ -69,11 +69,15 @@
     </svg>
   </div>
 
-  <!-- Terminal -->
+  <!-- Content -->
   <div class="content-wrap">
-    <div class="content-block">Content</div>
-    <div class="terminal">
-      <pre></pre>
+    <app-feedback-form class="content-block" (createFeedback)="getFormInfo($event)"></app-feedback-form>
+
+    <div class="feedbacks" *ngIf="feedbacks.length > 0">
+      <div *ngFor="let feedback of feedbacks">
+        <app-feedback-card [feedback]="feedback"></app-feedback-card>
+      </div>
     </div>
+    <div class="no-feedbacks" *ngIf="feedbacks.length === 0"><span>No feedbacks yet</span></div>
   </div>
 </div>

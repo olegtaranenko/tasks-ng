@@ -1,0 +1,20 @@
+.feedback-card {
+  padding: 15px;
+  border: 1px #ccc solid;
+  box-sizing: border-box;
+  min-width: 285px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.feedback-card-title {
+  font-size: 16px;
+  color: #797878;
+  margin: 10px 0;
+  font-family: Helvetica, sans-serif;
+}
+.feedback-card-text {
+  font-size: 16px;
+  color: #000;
+  margin: 10px 0;
+  font-family: Helvetica, sans-serif;
+}
