@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { IProduct } from '../../mocks/products';
+import { IProduct } from '../products.service';
 
 @Component({
   selector: 'app-shop-card',
@@ -13,5 +13,7 @@ export class CardComponent {
   @Output()
   public addToCart = new EventEmitter();
 
-  public addProduct(): void {}
+  public addProduct(): void {
+    this.addToCart.emit();
+  }
 }
