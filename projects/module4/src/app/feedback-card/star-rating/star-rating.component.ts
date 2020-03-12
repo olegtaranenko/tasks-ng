@@ -1,27 +1,47 @@
 import { Component, Input } from '@angular/core';
 
+export enum StarsIcon {
+  FILLED = 'star',
+  HALF = 'star_half',
+  BORDERED = 'star_border',
+}
+
 @Component({
   selector: 'app-star-rating',
   templateUrl: './star-rating.component.html',
   styleUrls: ['./star-rating.component.sass'],
 })
 export class StarRatingComponent {
-  @Input() feedbackRate!: number;
-  // tslint:disable-next-line: no-inferrable-types
-  public coloredStar: string = '';
-  public stars = [0, 1, 2, 3, 4];
-  public highlight(index: number) {
-    if (
-      Math.trunc(this.feedbackRate) !== this.feedbackRate &&
-      index + 1 > this.feedbackRate &&
-      index <= this.feedbackRate
-    ) {
-      this.coloredStar = 'star_half';
-    } else if (index < this.feedbackRate) {
-      this.coloredStar = 'star';
-    } else {
-      this.coloredStar = 'star_border';
+  @Input()
+  public set rate(rate: number | null) {
+    if (rate === null) {
+      rate = 0;
     }
-    return index < this.feedbackRate;
+    const integerPart = Math.floor(rate);
+    const doublePart = rate % 1;
+    for (let i = 0; i < this.starsCount; i++) {
+      if (i > integerPart) {
+        this.stars.push({ icon: StarsIcon.BORDERED, active: false });
+        continue;
+      }
+      if (i < integerPart) {
+        this.stars.push({ icon: StarsIcon.FILLED, active: true });
+        continue;
+      }
+      if (0 <= doublePart && doublePart < 0.25) {
+        this.stars.push({ icon: StarsIcon.BORDERED, active: false });
+        continue;
+      }
+      if (doublePart > 0.25 && doublePart < 0.75) {
+        this.stars.push({ icon: StarsIcon.HALF, active: true });
+        continue;
+      }
+      if (doublePart >= 0.75) {
+        this.stars.push({ icon: StarsIcon.FILLED, active: true });
+      }
+    }
   }
+
+  public stars: { icon: StarsIcon; active: boolean }[] = [];
+  public starsCount = 5;
 }

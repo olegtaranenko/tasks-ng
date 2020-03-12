@@ -1,4 +1,4 @@
-import { RatingControlsComponent } from './rating-controls/rating-controls.component';
+import { RatingControlsComponent } from './feedback-form/rating-controls/rating-controls.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';

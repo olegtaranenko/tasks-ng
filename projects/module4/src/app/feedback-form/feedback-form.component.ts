@@ -16,17 +16,18 @@ export class FeedbackFormComponent {
     advantages: ['', [Validators.required, Validators.minLength(10)]],
     limitations: ['', [Validators.required, Validators.minLength(10)]],
     description: ['', [Validators.required, Validators.minLength(10)]],
-    rate: ['', [Validators.required]],
+    rateControl: ['', [Validators.required]],
   });
 
   public save(value: object) {
     this.createFeedback.emit(value);
-    this.feedbackForm.patchValue({
-      advantages: '',
-      limitations: '',
-      description: '',
-      rate: null,
-    });
+    this.feedbackForm.reset();
+    // this.feedbackForm.patchValue({
+    //   advantages: '',
+    //   limitations: '',
+    //   description: '',
+    //   rate: null,
+    // });
   }
 
   public getField(name: string) {

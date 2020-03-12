@@ -44,11 +44,4 @@ describe('[Module 4] Feedback Card Component', () => {
     const starRatingComponent = fixture.debugElement.query(By.directive(StarRatingComponent));
     expect(starRatingComponent).toBeTruthy();
   });
-  //   it('should have right binding for rate', () => {
-  //     const rateEL = fixture.debugElement.query(By.css('.rate'));
-  //     expect(rateEL).toBeTruthy();
-  //     const { rate } = component?.feedback;
-  //     const [{ nativeNode: rateNode }] = rateEL.childNodes;
-  //     expect(rateNode.textContent.trim()).toEqual(rate);
-  //   });
-});
+ });

@@ -15,12 +15,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class RatingControlsComponent implements ControlValueAccessor {
   public stars = [1, 2, 3, 4, 5];
-  public currentRating: number = 0;
-  public coloredStar: string = '';
+  public currentRating = 0;
+  public coloredStar = '';
+  // tslint:disable-next-line: ban-types
   public onChange!: Function;
   public highlightRaiting: number | null = null;
 
   writeValue(): void {}
+  // tslint:disable-next-line: ban-types
   registerOnChange(fn: Function) {
     this.onChange = fn;
   }

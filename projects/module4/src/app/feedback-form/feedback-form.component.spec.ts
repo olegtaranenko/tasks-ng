@@ -1,15 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FeedbackFormComponent } from './feedback-form.component';
-import { FormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { RatingControlsComponent } from './rating-controls/rating-controls.component';
 
 describe('[Module 4] Feedback Form Component', () => {
   let component: FeedbackFormComponent;
   let fixture: ComponentFixture<FeedbackFormComponent>;
   const formBuilder: FormBuilder = new FormBuilder();
+  let createFeedbackSpy: jasmine.Spy;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule],
-      declarations: [FeedbackFormComponent],
+      imports: [ReactiveFormsModule],
+      declarations: [FeedbackFormComponent, RatingControlsComponent],
       providers: [{ provide: FormBuilder, useValue: formBuilder }],
     }).compileComponents();
   }));
@@ -18,22 +21,56 @@ describe('[Module 4] Feedback Form Component', () => {
     fixture = TestBed.createComponent(FeedbackFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    spyOn(component, 'save').and.callThrough();
+    createFeedbackSpy = spyOn(component.createFeedback, 'emit').and.callThrough();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Should have createFeedback method and save Output property ', () => {
+    expect(component.save).toBeTruthy();
+    expect(component.createFeedback).toBeTruthy();
   });
-  // it('form invalid when empty', () => {
-  //   expect(component.form.valid).toBeFalsy();
-  // });
-  // it('name field validity', () => {
-  //   let name = component.user.controls['name'];
-  //   expect(name.valid).toBeFalsy();
 
-  //   let errors = {};
-  //   name.setValue('');
-  //   errors = name.errors || {};
-  //   expect(errors['required']).toBeTruthy(); // this works
-  //   expect(errors['minLength']).toBeTruthy(); // this fails, "undefined"
-  // });
+  it('should have right handling on click', () => {
+    const btn = fixture.debugElement.query(By.css('.feedback-btn-control'));
+    btn.triggerEventHandler('click', null);
+    expect(component.save).toHaveBeenCalledBefore(createFeedbackSpy);
+    expect(component.createFeedback.emit).toHaveBeenCalled();
+  });
+
+  it('form invalid when empty', () => {
+    expect(component.feedbackForm.valid).toBeFalsy();
+  });
+
+  it('description field validity', () => {
+    const description = component.feedbackForm.controls.description;
+    expect(description.valid).toBeFalsy();
+
+    description.setValue('');
+    expect(description.hasError('required')).toBeTruthy();
+
+    description.setValue('101010');
+    expect(description.hasError('minLength')).toBeFalsy();
+  });
+
+  it('advantages field validity', () => {
+    const advantages = component.feedbackForm.controls.advantages;
+    expect(advantages.valid).toBeFalsy();
+
+    advantages.setValue('');
+    expect(advantages.hasError('required')).toBeTruthy();
+
+    advantages.setValue('101010');
+    expect(advantages.hasError('minLength')).toBeFalsy();
+  });
+
+  it('limitations field validity', () => {
+    const limitations = component.feedbackForm.controls.limitations;
+    expect(limitations.valid).toBeFalsy();
+
+    limitations.setValue('');
+    expect(limitations.hasError('required')).toBeTruthy();
+
+    limitations.setValue('101010');
+    expect(limitations.hasError('minLength')).toBeFalsy();
+  });
 });

@@ -1,5 +1,5 @@
 export interface IFeedback {
-  rate: number | null;
+  rateControl: number | null;
   advantages: string;
   limitations: string;
   description: string;
@@ -7,25 +7,25 @@ export interface IFeedback {
 
 export const feedbacks: IFeedback[] = [
   {
-    rate: null,
+    rateControl: null,
     advantages: 'string111111',
     limitations: 'string11111',
     description: 'string11111',
   },
   {
-    rate: 5,
+    rateControl: 5,
     advantages: 'string22222',
     limitations: 'string22222',
     description: 'string22222',
   },
   {
-    rate: 2.8,
+    rateControl: 2.8,
     advantages: 'string3333333',
     limitations: 'string333333',
     description: 'string333333',
   },
   {
-    rate: 4.1,
+    rateControl: 4.1,
     advantages: 'string4444444',
     limitations: 'string4444444',
     description: 'string444444',

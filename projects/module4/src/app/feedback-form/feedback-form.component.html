@@ -1,7 +1,7 @@
 <div [formGroup]="feedbackForm" class="feedback">
   <h2 class="feedback-title">Оставить отзыв</h2>
   <div class="feedback-inputs">
-    <app-rating-controls formControlName="rate"></app-rating-controls>
+    <app-rating-controls formControlName="rateControl"></app-rating-controls>
     <label class="feedback-inputs-label">
       Достоинства
       <div class="form-valid" *ngIf="getField('advantages')?.errors?.minlength">

@@ -1,13 +1,18 @@
+import { StarRatingComponent } from './../../../module3/src/app/card/star-rating/star-rating.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
+import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+import { RatingControlsComponent } from './feedback-form/rating-controls/rating-controls.component';
 
 describe('[Module 4] general application tests', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      declarations: [AppComponent, FeedbackFormComponent, RatingControlsComponent, StarRatingComponent],
+      imports: [ReactiveFormsModule],
     });
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
