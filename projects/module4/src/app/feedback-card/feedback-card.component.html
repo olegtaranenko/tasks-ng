@@ -1,0 +1,14 @@
+<div class="feedback-card">
+  <app-star-rating class="rate" [rate]="feedback.rateControl"></app-star-rating>
+  <div class="feedback-card-text description">
+    {{ feedback.description }}
+  </div>
+  <div class="feedback-card-title">
+    <span>Достоинства:</span>
+    <div class="feedback-card-text advantages">{{ feedback.advantages }}</div>
+  </div>
+  <div class="feedback-card-title">
+    <span> Недостатки:</span>
+    <div class="feedback-card-text limitations">{{ feedback.limitations }}</div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.content-block {
+  background-color: #fff;
+  height: fit-content;
+}
+.feedbacks {
+  width: 49%;
+  box-sizing: border-box;
+  min-width: 285px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.no-feedbacks {
+  width: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 285px;
+  border-radius: 6px;
+  border: 1px #ccc solid;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #797878;
+  font-family: Helvetica, sans-serif;
+}
+@media screen and (max-width: 767px) {
+  .feedbacks {
+    width: 100%;
+  }
+  .no-feedbacks {
+    width: 100%;
+  }
+}

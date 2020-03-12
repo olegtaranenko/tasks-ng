@@ -1,0 +1,35 @@
+<div [formGroup]="feedbackForm" class="feedback">
+  <h2 class="feedback-title">Оставить отзыв</h2>
+  <div class="feedback-inputs">
+    <app-rating-controls formControlName="rateControl"></app-rating-controls>
+    <label class="feedback-inputs-label">
+      Достоинства
+      <div class="form-valid" *ngIf="getField('advantages')?.errors?.minlength">
+        Mинимум 10 символов
+      </div>
+    </label>
+
+    <input formControlName="advantages" type="text" />
+    <label class="feedback-inputs-label"
+      >Недостатки
+      <div class="form-valid" *ngIf="getField('limitations')?.errors?.minlength">
+        Mинимум 10 символов
+      </div>
+    </label>
+
+    <input formControlName="limitations" type="text" />
+    <label class="feedback-inputs-label">
+      Комментарий
+      <div class="form-valid-area-textarea" *ngIf="getField('description')?.errors?.minlength">
+        Mинимум 10 символов
+      </div>
+    </label>
+
+    <textarea formControlName="description" type="text"></textarea>
+  </div>
+  <div class="feedback-btn">
+    <button class="feedback-btn-control" (click)="save(feedbackForm.value)" [disabled]="feedbackForm.invalid">
+      Оставить отзыв
+    </button>
+  </div>
+</div>
