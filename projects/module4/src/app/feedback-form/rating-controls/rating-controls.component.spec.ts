@@ -16,7 +16,7 @@ class TestComponent {
   public rateControl = new FormControl();
 }
 
-describe('[Module 4] Rating controls component', () => {
+describe('[Moдуль 4] Выставление рейтинга', () => {
   let fixture: ComponentFixture<TestComponent>;
   let component: TestComponent;
   beforeEach(async(() => {
@@ -28,7 +28,8 @@ describe('[Module 4] Rating controls component', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
-  it('should show default view', () => {
+  // ---------------Без значения-----------
+  it('проверка на отображение по умолчанию', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
     expect(stars.length).toEqual(5);
@@ -38,7 +39,7 @@ describe('[Module 4] Rating controls component', () => {
     expect(stars[3].classes.selected).toBeFalsy();
     expect(stars[4].classes.selected).toBeFalsy();
   });
-  it('should right highlight', () => {
+  it('проверка на подсветку звезд при mouseenter', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
     stars[3].triggerEventHandler('mouseenter', null);
@@ -50,26 +51,7 @@ describe('[Module 4] Rating controls component', () => {
     expect(stars[3].classes.selected).toBeFalsy();
     expect(stars[4].classes.selected).toBeFalsy();
   });
-  it('should right highlighting with default value', () => {
-    const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
-    const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
-    component.rateControl.patchValue({
-      advantages: '',
-      limitations: '',
-      description: '',
-      rate: 2,
-    });
-    stars[3].triggerEventHandler('mouseenter', null);
-    fixture.detectChanges();
-    expect(stars.length).toEqual(5);
-    expect(stars[0].classes.selected).toBeTruthy();
-    expect(stars[1].classes.selected).toBeTruthy();
-    expect(stars[2].classes.selected).toBeTruthy();
-    expect(stars[3].classes.selected).toBeFalsy();
-    expect(stars[4].classes.selected).toBeFalsy();
-  });
-
-  it('should right mouseleave', () => {
+  it('проверка на правильную подсветку звезд при mouseleave', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
     stars[3].triggerEventHandler('mouseleave', null);
@@ -81,9 +63,89 @@ describe('[Module 4] Rating controls component', () => {
     expect(stars[3].classes.selected).toBeFalsy();
     expect(stars[4].classes.selected).toBeFalsy();
   });
-  it('should right selected', () => {
+  it('проверка на подсветку звезд при click', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
+    stars[3].triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeTruthy();
+    expect(stars[1].classes.selected).toBeTruthy();
+    expect(stars[2].classes.selected).toBeTruthy();
+    expect(stars[3].classes.selected).toBeTruthy();
+    expect(stars[4].classes.selected).toBeFalsy();
+  });
+  // --------------- NULL -------------
+  it('проверка на отображение и подсветку звезд при rateControl = null ', () => {
+    component.rateControl.patchValue(null);
+    const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
+    const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
+    fixture.detectChanges();
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeFalsy();
+    expect(stars[1].classes.selected).toBeFalsy();
+    expect(stars[2].classes.selected).toBeFalsy();
+    expect(stars[3].classes.selected).toBeFalsy();
+    expect(stars[4].classes.selected).toBeFalsy();
+
+    stars[3].triggerEventHandler('mouseleave', null);
+    fixture.detectChanges();
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeFalsy();
+    expect(stars[1].classes.selected).toBeFalsy();
+    expect(stars[2].classes.selected).toBeFalsy();
+    expect(stars[3].classes.selected).toBeFalsy();
+    expect(stars[4].classes.selected).toBeFalsy();
+
+    stars[3].triggerEventHandler('mouseenter', null);
+    fixture.detectChanges();
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeTruthy();
+    expect(stars[1].classes.selected).toBeTruthy();
+    expect(stars[2].classes.selected).toBeTruthy();
+    expect(stars[3].classes.selected).toBeFalsy();
+    expect(stars[4].classes.selected).toBeFalsy();
+
+    stars[3].triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeTruthy();
+    expect(stars[1].classes.selected).toBeTruthy();
+    expect(stars[2].classes.selected).toBeTruthy();
+    expect(stars[3].classes.selected).toBeTruthy();
+    expect(stars[4].classes.selected).toBeFalsy();
+  });
+  // ---------------With Value------------------
+  it('проверка на отображение и подсветку звезд при rateControl = число от 1 до 5', () => {
+    component.rateControl.patchValue(2);
+    fixture.detectChanges();
+    const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
+    const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeTruthy();
+    expect(stars[1].classes.selected).toBeTruthy();
+    expect(stars[2].classes.selected).toBeFalsy();
+    expect(stars[3].classes.selected).toBeFalsy();
+    expect(stars[4].classes.selected).toBeFalsy();
+
+    stars[3].triggerEventHandler('mouseleave', null);
+    fixture.detectChanges();
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeTruthy();
+    expect(stars[1].classes.selected).toBeTruthy();
+    expect(stars[2].classes.selected).toBeFalsy();
+    expect(stars[3].classes.selected).toBeFalsy();
+    expect(stars[4].classes.selected).toBeFalsy();
+
+    stars[3].triggerEventHandler('mouseenter', null);
+    fixture.detectChanges();
+    expect(stars.length).toEqual(5);
+    expect(stars[0].classes.selected).toBeTruthy();
+    expect(stars[1].classes.selected).toBeTruthy();
+    expect(stars[2].classes.selected).toBeTruthy();
+    expect(stars[3].classes.selected).toBeFalsy();
+    expect(stars[4].classes.selected).toBeFalsy();
+
     stars[3].triggerEventHandler('click', null);
     fixture.detectChanges();
     expect(stars.length).toEqual(5);

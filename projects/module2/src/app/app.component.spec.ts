@@ -6,7 +6,7 @@ import { By } from '@angular/platform-browser';
 import { ImgUrlPipe } from './card/img-url.pipe';
 import { StarRatingComponent } from './card/star-rating/star-rating.component';
 
-describe('[Module 2] general application tests', () => {
+describe('[Moдуль 2] Общие тесты приложения', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   beforeEach(async(() => {
@@ -19,11 +19,11 @@ describe('[Module 2] general application tests', () => {
     fixture.detectChanges();
   }));
 
-  it('should create the app', () => {
+  it('проверка на создание Арр компонента', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have title `, () => {
+  it(`проверка на наличие правильного заголовка `, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
     const [
       {
@@ -33,7 +33,7 @@ describe('[Module 2] general application tests', () => {
     expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('should render right subtitle', () => {
+  it('проверка на наличие правильного подзаголовка', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
     const [
       {

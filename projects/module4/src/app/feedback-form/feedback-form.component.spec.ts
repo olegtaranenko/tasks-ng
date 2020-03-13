@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { RatingControlsComponent } from './rating-controls/rating-controls.component';
 
-describe('[Module 4] Feedback Form Component', () => {
+describe('[Moдуль 4] Форма для отзывов', () => {
   let component: FeedbackFormComponent;
   let fixture: ComponentFixture<FeedbackFormComponent>;
   const formBuilder: FormBuilder = new FormBuilder();
@@ -25,23 +25,23 @@ describe('[Module 4] Feedback Form Component', () => {
     createFeedbackSpy = spyOn(component.createFeedback, 'emit').and.callThrough();
   });
 
-  it('Should have createFeedback method and save Output property ', () => {
+  it('проверка наналичие метода createFeedback и Output свойства save ', () => {
     expect(component.save).toBeTruthy();
     expect(component.createFeedback).toBeTruthy();
   });
 
-  it('should have right handling on click', () => {
+  it('проверка на правильную обработку клике на кнопку "Оставить отзыв"', () => {
     const btn = fixture.debugElement.query(By.css('.feedback-btn-control'));
     btn.triggerEventHandler('click', null);
     expect(component.save).toHaveBeenCalledBefore(createFeedbackSpy);
     expect(component.createFeedback.emit).toHaveBeenCalled();
   });
 
-  it('form invalid when empty', () => {
+  it('проверка на валидность пустой формы', () => {
     expect(component.feedbackForm.valid).toBeFalsy();
   });
 
-  it('description field validity', () => {
+  it('проверка на валидацию поля description в форме', () => {
     const description = component.feedbackForm.controls.description;
     expect(description.valid).toBeFalsy();
 
@@ -52,7 +52,7 @@ describe('[Module 4] Feedback Form Component', () => {
     expect(description.hasError('minLength')).toBeFalsy();
   });
 
-  it('advantages field validity', () => {
+  it('проверка на валидацию поля advantages в форме', () => {
     const advantages = component.feedbackForm.controls.advantages;
     expect(advantages.valid).toBeFalsy();
 
@@ -63,7 +63,7 @@ describe('[Module 4] Feedback Form Component', () => {
     expect(advantages.hasError('minLength')).toBeFalsy();
   });
 
-  it('limitations field validity', () => {
+  it('проверка на валидацию поля limitations в форме', () => {
     const limitations = component.feedbackForm.controls.limitations;
     expect(limitations.valid).toBeFalsy();
 

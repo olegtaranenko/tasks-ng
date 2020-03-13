@@ -1,18 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { By, BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RatingComponent } from './rating/rating.component';
-import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
-import { MatIconModule } from '@angular/material/icon';
+import { By } from '@angular/platform-browser';
+import { StarRatingComponent } from './card/star-rating/star-rating.component';
+import { CardComponent } from './card/card.component';
+import { ImgUrlPipe } from './card/img-url.pipe';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProductsService } from './products.service';
+import { BASE_URL_TOKEN } from './config';
+import { environment } from '../environments/environment';
+import { InterceptorService } from './interceptor.service';
 
 describe('[Module 5] general application tests', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, RatingComponent, FeedbackFormComponent],
-      imports: [ReactiveFormsModule, BrowserModule, FormsModule, MatIconModule],
+      declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe],
+      imports: [HttpClientModule],
+      providers: [
+        ProductsService,
+        {
+          provide: BASE_URL_TOKEN,
+          useValue: environment.baseUrl,
+        },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: InterceptorService,
+          multi: true,
+        },
+      ],
     });
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
@@ -40,6 +56,6 @@ describe('[Module 5] general application tests', () => {
         nativeNode: { textContent },
       },
     ] = subTitle.childNodes;
-    expect(textContent).toContain('5. Формы и свои элементы форм');
+    expect(textContent.trim()).toContain('5. Навигация в приложении');
   });
 });

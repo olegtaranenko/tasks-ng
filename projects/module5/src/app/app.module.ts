@@ -1,16 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RatingComponent } from './rating/rating.component';
 import { MatIconModule } from '@angular/material/icon';
-import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+import { StarRatingComponent } from './card/star-rating/star-rating.component';
+import { CardComponent } from './card/card.component';
+import { ImgUrlPipe } from './card/img-url.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProductsService } from './products.service';
+import { BASE_URL_TOKEN } from './config';
+import { environment } from '../environments/environment';
+import { InterceptorService } from './interceptor.service';
 
 @NgModule({
-  declarations: [AppComponent, RatingComponent, FeedbackFormComponent],
-  imports: [BrowserModule, MatIconModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe],
+  imports: [BrowserModule, BrowserAnimationsModule, MatIconModule, HttpClientModule],
+  providers: [
+    ProductsService,
+    {
+      provide: BASE_URL_TOKEN,
+      useValue: environment.baseUrl,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
-  exports: [MatIconModule],
 })
 export class AppModule {}

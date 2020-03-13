@@ -69,13 +69,11 @@
     </svg>
   </div>
   <!-- Content -->
-  <div class="content-wrap">
-    <app-feedback-form class="content-block" (createFeedback)="getFormInfo($event)"></app-feedback-form>
-    <div class="terminal">
-      <pre>
-            {{ feedbackFormInfo | json }}
-          </pre
-      >
+  <div class="content-wrap products-wrap">
+    <div class="content-block products">
+      <div class="product" *ngFor="let product of products$ | async">
+        <app-shop-card [product]="product" (addToCart)="addProduct(product)"> </app-shop-card>
+      </div>
     </div>
   </div>
 </div>
