@@ -6,7 +6,7 @@ import { ImgUrlPipe } from './img-url.pipe';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { products } from '../../mocks/products';
 
-describe('[Module 3] Card component', () => {
+describe('[Moдуль 3] Карточка продукта', () => {
   let fixture: ComponentFixture<CardComponent>;
   let component: CardComponent;
   let addToCartSpy: jasmine.Spy;
@@ -22,19 +22,19 @@ describe('[Module 3] Card component', () => {
     spyOn(component, 'addProduct').and.callThrough();
     addToCartSpy = spyOn(component.addToCart, 'emit').and.callThrough();
   });
-  it('Should have addProduct method and addToCart Output property ', () => {
+  it('проверка наналичие метода addProduct и Output свойства addToCart', () => {
     expect(component.addToCart).toBeTruthy();
     expect(component.addProduct).toBeTruthy();
   });
 
-  it('Should have right cart icon ', () => {
+  it('проверка на наличие правильной иконки ', () => {
     const icon = fixture.debugElement.query(By.css('.product-add-to-cart'));
     expect(icon).toBeTruthy();
     const [{ nativeNode }] = icon.childNodes;
     expect(nativeNode.textContent.trim()).toEqual('add_shopping_cart');
   });
 
-  it('should have right binding for img', () => {
+  it('проверка на правильное значение поля img', () => {
     const imgEl = fixture.debugElement.query(By.css('.card-img-top'));
     expect(imgEl).toBeTruthy();
     const {
@@ -45,7 +45,7 @@ describe('[Module 3] Card component', () => {
     expect(imgEl.attributes.alt).toEqual(name);
   });
 
-  it('should have right bindings for title', () => {
+  it('проверка на правильное значение поля title', () => {
     const titleEL = fixture.debugElement.query(By.css('.card-title'));
     expect(titleEL).toBeTruthy();
     const { name } = component?.product;
@@ -53,7 +53,7 @@ describe('[Module 3] Card component', () => {
     expect(titleNode.textContent.trim()).toEqual(name);
   });
 
-  it('should have right bindings for price', () => {
+  it('проверка на правильное значение поля price', () => {
     const { price } = component?.product;
     const priceEl = fixture.debugElement.query(By.css('.price-text'));
     expect(price).toBeTruthy();
@@ -61,14 +61,14 @@ describe('[Module 3] Card component', () => {
     expect(priceNode.textContent.trim()).toEqual(`₽${price.toString()}.00`);
   });
 
-  it('should have right handling on icon click', () => {
+  it('проверка на правильную обработку при клике на иконку', () => {
     const icon = fixture.debugElement.query(By.css('.product-add-to-cart'));
     icon.triggerEventHandler('click', null);
     expect(component.addProduct).toHaveBeenCalledBefore(addToCartSpy);
     expect(component.addToCart.emit).toHaveBeenCalled();
   });
 
-  it('should include app-star-rating component', () => {
+  it('должен включать в себя компонент app-star-rating ', () => {
     const ratingComponent = fixture.debugElement.query(By.directive(StarRatingComponent));
     expect(ratingComponent).toBeTruthy();
   });

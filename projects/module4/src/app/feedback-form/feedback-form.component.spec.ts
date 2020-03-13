@@ -30,7 +30,7 @@ describe('[Moдуль 4] Форма для отзывов', () => {
     expect(component.createFeedback).toBeTruthy();
   });
 
-  it('проверка на правильную обработку клике на кнопку "Оставить отзыв"', () => {
+  it('проверка на правильную обработку при клике на кнопку "Оставить отзыв"', () => {
     const btn = fixture.debugElement.query(By.css('.feedback-btn-control'));
     btn.triggerEventHandler('click', null);
     expect(component.save).toHaveBeenCalledBefore(createFeedbackSpy);
