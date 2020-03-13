@@ -4,35 +4,40 @@ import { CardComponent } from './card/card.component';
 import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 
-describe('[Module 1] general application tests', () => {
+describe('[Moдуль 1] Общие тесты приложения', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        CardComponent
-      ],
-      imports: [MatIconModule]
+      declarations: [AppComponent, CardComponent],
+      imports: [MatIconModule],
     });
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     fixture.detectChanges();
   }));
 
-  it('should create the app', () => {
+  it('проверка на создание компонента', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have title `, () => {
+  it(`проверка на наличие правильного заголовка`, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
-    const [{nativeNode: {textContent}}] = title.childNodes;
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = title.childNodes;
     expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('should render right subtitle', () => {
+  it('проверка на наличие правильного подзаголовка', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
-    const [{nativeNode: {textContent}}] = subTitle.childNodes;
+    const [
+      {
+        nativeNode: { textContent },
+      },
+    ] = subTitle.childNodes;
     expect(textContent).toContain('1. Интерполяция и связывание');
   });
 });

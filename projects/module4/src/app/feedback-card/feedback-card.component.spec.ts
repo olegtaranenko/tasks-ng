@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 import { feedbacks } from '../../mocks/feedbacks';
 
-describe('[Module 4] Feedback Card Component', () => {
+describe('[Модуль 4] Карточка отзыва', () => {
   let component: FeedbackCardComponent;
   let fixture: ComponentFixture<FeedbackCardComponent>;
   beforeEach(() => {
@@ -19,29 +19,29 @@ describe('[Module 4] Feedback Card Component', () => {
     fixture.detectChanges();
   });
 
-  it('should have right bindings for comment', () => {
+  it('проверка на правильное значение поля description', () => {
     const commentEL = fixture.debugElement.query(By.css('.description'));
     expect(commentEL).toBeTruthy();
     const { description } = component?.feedback;
     const [{ nativeNode: commentNode }] = commentEL.childNodes;
     expect(commentNode.textContent.trim()).toEqual(description);
   });
-  it('should have right bindings for advantages', () => {
+  it('проверка на правильное значение поля advantages', () => {
     const advantagesEL = fixture.debugElement.query(By.css('.advantages'));
     expect(advantagesEL).toBeTruthy();
     const { advantages } = component?.feedback;
     const [{ nativeNode: advantagesNode }] = advantagesEL.childNodes;
     expect(advantagesNode.textContent.trim()).toEqual(advantages);
   });
-  it('should have right bindings for limitations', () => {
+  it('проверка на правильное значение поля limitations', () => {
     const limitationsEL = fixture.debugElement.query(By.css('.limitations'));
     expect(limitationsEL).toBeTruthy();
     const { limitations } = component?.feedback;
     const [{ nativeNode: limitationsNode }] = limitationsEL.childNodes;
     expect(limitationsNode.textContent.trim()).toEqual(limitations);
   });
-  it('should include app-star-rating component', () => {
+  it('должен включать в себя компонент app-star-rating ', () => {
     const starRatingComponent = fixture.debugElement.query(By.directive(StarRatingComponent));
     expect(starRatingComponent).toBeTruthy();
   });
- });
+});

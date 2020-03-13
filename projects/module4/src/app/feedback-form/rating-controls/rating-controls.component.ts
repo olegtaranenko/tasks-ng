@@ -21,7 +21,9 @@ export class RatingControlsComponent implements ControlValueAccessor {
   public onChange!: Function;
   public highlightRaiting: number | null = null;
 
-  writeValue(): void {}
+  writeValue(rating: number): void {
+    this.currentRating = rating ?? 0;
+  }
   // tslint:disable-next-line: ban-types
   registerOnChange(fn: Function) {
     this.onChange = fn;
@@ -30,6 +32,7 @@ export class RatingControlsComponent implements ControlValueAccessor {
   public starSelect(index: number) {
     this.currentRating = index;
     this.onChange(this.currentRating);
+    //  this.feedbackForm.reset();
   }
   public starMouseEnter(index: number) {
     this.highlightRaiting = index;

@@ -10,7 +10,7 @@ import { ProductsService } from './products.service';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-describe('[Module 3] general application tests', () => {
+describe('[Moдуль 3] Общие тесты приложения', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   beforeEach(async(() => {
@@ -35,11 +35,11 @@ describe('[Module 3] general application tests', () => {
     fixture.detectChanges();
   }));
 
-  it('should create the app', () => {
+  it('проверка на создание компонента', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have title `, () => {
+  it(`проверка на наличие правильного заголовка `, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
     const [
       {
@@ -49,7 +49,7 @@ describe('[Module 3] general application tests', () => {
     expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('should render right subtitle', () => {
+  it('проверка на наличие правильного подзаголовка', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
     const [
       {

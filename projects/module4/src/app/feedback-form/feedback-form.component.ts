@@ -22,12 +22,6 @@ export class FeedbackFormComponent {
   public save(value: object) {
     this.createFeedback.emit(value);
     this.feedbackForm.reset();
-    // this.feedbackForm.patchValue({
-    //   advantages: '',
-    //   limitations: '',
-    //   description: '',
-    //   rate: null,
-    // });
   }
 
   public getField(name: string) {

@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
-describe('[ Модуль 4] Рейтинг продукта', () => {
+describe('[Module 5] Stars rating component', () => {
   let fixture: ComponentFixture<StarRatingComponent>;
   let component: StarRatingComponent;
   beforeEach(async(() => {
@@ -15,7 +15,7 @@ describe('[ Модуль 4] Рейтинг продукта', () => {
     fixture = TestBed.createComponent(StarRatingComponent);
     component = fixture.componentInstance;
   }));
-  it('проверка на занчение null', () => {
+  it('check null value', () => {
     component.rate = null;
     fixture.detectChanges();
     const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));
@@ -26,7 +26,7 @@ describe('[ Модуль 4] Рейтинг продукта', () => {
     expect(stars[3].classes['gold-star']).toBeFalsy();
     expect(stars[4].classes['gold-star']).toBeFalsy();
   });
-  it('проверка на занчение 0 - 0.25', () => {
+  it('check precision 0 - 0.25', () => {
     component.rate = 1.12412;
     fixture.detectChanges();
     const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));
@@ -36,7 +36,7 @@ describe('[ Модуль 4] Рейтинг продукта', () => {
     expect(stars[3].classes['gold-star']).toBeFalsy();
     expect(stars[4].classes['gold-star']).toBeFalsy();
   });
-  it('проверка на занчение 0.25 < 0.75', () => {
+  it('check precision 0.25 < 0.75', () => {
     component.rate = 2.423235;
     fixture.detectChanges();
     const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));
@@ -46,7 +46,7 @@ describe('[ Модуль 4] Рейтинг продукта', () => {
     expect(stars[3].classes['gold-star']).toBeFalsy();
     expect(stars[4].classes['gold-star']).toBeFalsy();
   });
-  it('проверка на занчение > 0.75', () => {
+  it('check precision > 0.75', () => {
     component.rate = 3.76453;
     fixture.detectChanges();
     const stars: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-icon'));

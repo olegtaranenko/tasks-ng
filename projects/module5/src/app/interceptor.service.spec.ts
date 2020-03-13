@@ -6,7 +6,7 @@ import { ProductsService } from './products.service';
 import { InterceptorService } from './interceptor.service';
 import { products } from '../mocks/products';
 
-describe('[Moдуль 3] Интерсептор ', () => {
+describe('[Module 3] interceptor ', () => {
   let httpMocked: HttpTestingController;
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -27,7 +27,7 @@ describe('[Moдуль 3] Интерсептор ', () => {
     httpMocked = TestBed.inject(HttpTestingController);
   });
 
-  it('проверка на правильный заголовок', inject(
+  it('should have right content type header', inject(
     [ProductsService, BASE_URL_TOKEN],
     (productsService: ProductsService, baseUrl: string) => {
       const url = `${baseUrl}/products`;
@@ -40,7 +40,7 @@ describe('[Moдуль 3] Интерсептор ', () => {
       expect(httpRequest.request.headers.get('Content-Type')).toEqual('application/json');
     }
   ));
-  it('проверка на получение товаров', inject(
+  it('should get products inside data field', inject(
     [ProductsService, BASE_URL_TOKEN],
     (productsService: ProductsService, baseUrl: string) => {
       const url = `${baseUrl}/products`;
