@@ -3,7 +3,7 @@ import { HttpHandler } from '@angular/common/http';
 import { HttpEvent, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { filter, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { BASE_URL_TOKEN } from './config';
+import { BASE_URL_TOKEN } from '../../config';
 export interface IRes {
   data: any;
   error?: string;

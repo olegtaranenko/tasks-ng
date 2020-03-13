@@ -1,4 +1,4 @@
-import { IProduct } from '../app/products.service';
+import { IProduct } from '../app/shared/services/products.service';
 
 export const products: IProduct[] = [
   {

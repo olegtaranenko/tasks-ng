@@ -1,4 +1,5 @@
 <!-- Toolbar -->
+
 <div class="toolbar" role="banner">
   <img
     width="40"
@@ -70,10 +71,7 @@
   </div>
   <!-- Content -->
   <div class="content-wrap products-wrap">
-    <div class="content-block products">
-      <div class="product" *ngFor="let product of products$ | async">
-        <app-shop-card [product]="product" (addToCart)="addProduct(product)"> </app-shop-card>
-      </div>
-    </div>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
   </div>
 </div>
