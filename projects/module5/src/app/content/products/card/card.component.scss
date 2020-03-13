@@ -21,6 +21,9 @@
   font-size: 18px;
   text-decoration: none !important;
 }
+.card-body .card-title a:hover {
+  cursor: pointer;
+}
 .card-product .card-body .price-text {
   margin: 16px 0 0 0;
 }

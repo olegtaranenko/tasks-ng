@@ -1,0 +1,211 @@
+.title
+    justify-content: space-between
+    align-items: flex-start
+    margin: 40px
+    a
+        font-weight: bolder
+        color: rgba(0,0,0,.9)
+        font-size: xx-large
+        line-height: 2.5
+        text-align: left
+        line-height: 19px
+        font-weight: 800
+        font-family: "Helvetica Neue", sans-serif
+        text-decoration: none
+.one-product
+    margin: 40px
+.main
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    align-items: flex-start
+    flex-wrap: nowrap
+    background-color: #fff
+    &-cont
+        display: flex
+        flex-direction: column
+        width: 50%
+        justify-content: space-around
+        align-items: flex-start
+        &-info
+            &-img
+                background-color: #ECEEEF
+                width: 300px
+                height: 300px
+            &-price
+                padding: 20px 20px 20px 0
+                color: rgba(0,0,0,.9)
+                font-size: x-large
+                line-height: 1.5
+                text-align: left
+                line-height: 19px
+                font-weight: 600
+                font-family: "Helvetica Neue", sans-serif
+                text-decoration: none
+                &-btn
+                    font-size: 30px
+                    height: 24px
+                    width: 24px
+                    text-align: center
+                    color: #000000
+                    font-family: 'Material Icons'
+                    background-color: #ffffff00
+                    background-image: none
+                    border: none
+                    margin: 0 0 0 20px
+                    &:hover
+                        cursor: pointer
+                    &:focus
+                        outline: none
+
+    &-description
+        display: flex
+        flex-wrap: nowrap
+        flex-direction: row
+        justify-content: space-between
+        align-items: flex-start
+        margin: 40px 0 0 0
+        width: 50%
+        &-descr
+            color: rgba(0,0,0,.9)
+            font-size: large
+            line-height: 1.5
+            text-align: left
+            line-height: 19px
+            font-weight: 600
+            font-family: "Helvetica Neue", sans-serif
+            text-decoration: none
+            p
+                margin: 10px 0 0 0
+                color: rgba(0,0,0,.9)
+                font-size: medium
+                line-height: 1.5
+                text-align: left
+                line-height: 19px
+                font-weight: 400
+                font-family: "Helvetica Neue", sans-serif
+                text-decoration: none
+    &-comments
+        padding: 0 0 0 20px
+        color: rgba(0,0,0,.9)
+        font-size: large
+        line-height: 1.5
+        text-align: left
+        line-height: 19px
+        font-weight: 600
+        font-family: "Helvetica Neue", sans-serif
+        text-decoration: none
+        width: 50%
+        &-header
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            align-items: center
+            &-btn
+                font-size: 1rem
+                font-weight: 400
+                text-align: center
+                width: 160px
+                padding: 10px
+                cursor: pointer
+                color: white
+                background-color: #0b6ed8
+                background-image: none
+                border-radius: 5px
+                border-color: #0b6ed8
+                border-width: thin
+                &:focus
+                    outline: none
+                &:hover
+                    background-color: #007bff
+                    border-color: #007bff
+
+            p
+                margin: 10px 0 0 0
+                color: rgba(0,0,0,.9)
+                font-size: medium
+                line-height: 1.5
+                text-align: left
+                line-height: 19px
+                font-weight: 400
+                font-family: "Helvetica Neue", sans-serif
+                text-decoration: none
+        &-review
+            width: 100%
+            p
+                border: 1px solid #D3D3D3
+                border-radius: 3px 3px 0 0
+                margin: 20px 0 0 0
+                padding-left: 10px
+                padding-top: 10px
+                padding-bottom: 10px
+                color: rgba(0,0,0,.9)
+                font-size: medium
+                line-height: 1.5
+                text-align: left
+                line-height: 19px
+                font-weight: 600
+                font-family: "Helvetica Neue", sans-serif
+                text-decoration: none
+            &-text
+                border-width: 1px 1px 1px 1px
+                margin: 12px 0
+                border-style: solid
+                border-color: #D3D3D3
+                border-radius: 0 0 3px 3px
+                padding-top: 10px
+                padding-left: 10px
+                color: rgba(0,0,0,.9)
+                font-size: medium
+                line-height: 1.5
+                text-align: left
+                line-height: 19px
+                font-weight: 400
+                font-family: "Helvetica Neue", sans-serif
+
+                &-pluses
+                    margin: 15px 0 0 0
+                    font-weight: 600
+                    padding: 0!important
+                    li
+                        list-style: none
+                        font-weight: 400
+                        margin-bottom: 15px
+                &-minuses
+                    font-weight: 600
+                    padding: 0!important
+                    li
+                        list-style: none
+                        font-weight: 400
+                        margin-bottom: 15px
+.main-cont-description-descr
+    color: rgba(0,0,0,.9)
+    font-size: large
+    line-height: 1.5
+    text-align: left
+    line-height: 19px
+    font-weight: 600
+    font-family: "Helvetica Neue", sans-serif
+    text-decoration: none
+    p
+        margin: 10px 0 0 0
+        color: rgba(0,0,0,.9)
+        font-size: medium
+        line-height: 1.5
+        text-align: left
+        line-height: 19px
+        font-weight: 400
+        font-family: "Helvetica Neue", sans-serif
+        text-decoration: none
+
+.one-product-wrap
+    margin-bottom: 100px
+
+@media all and (max-width: 992px)
+    .main
+        flex-wrap: wrap
+        &-cont
+            width: 100%
+        &-comments
+            width: 100%
+            padding: 0

@@ -1,22 +1,25 @@
+import { MatIconModule } from '@angular/material/icon';
+import { HeaderComponent } from './header/header.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
-import { StarRatingComponent } from './card/star-rating/star-rating.component';
-import { CardComponent } from './card/card.component';
-import { ImgUrlPipe } from './card/img-url.pipe';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ProductsService } from './products.service';
 import { BASE_URL_TOKEN } from './config';
 import { environment } from '../environments/environment';
-import { InterceptorService } from './interceptor.service';
+import { ProductsService } from './shared/services/products.service';
+import { CardComponent } from './content/products/card/card.component';
+import { StarRatingComponent } from './content/products/card/star-rating/star-rating.component';
+import { ImgUrlPipe } from './shared/pipes/img-url.pipe';
+import { InterceptorService } from './shared/services/interceptor.service';
+import { AppRoutingModule } from './app-routing.module';
 
-describe('[Module 5] general application tests', () => {
+describe('[Modуль 5] Общие тесты приложения', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe],
-      imports: [HttpClientModule],
+      declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe, HeaderComponent],
+      imports: [HttpClientModule, MatIconModule, AppRoutingModule],
       providers: [
         ProductsService,
         {
@@ -35,11 +38,11 @@ describe('[Module 5] general application tests', () => {
     fixture.detectChanges();
   }));
 
-  it('should create the app', () => {
+  it('проверка на создание компонента', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have title `, () => {
+  it(`проверка на наличие правильного заголовка `, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
     const [
       {
@@ -49,7 +52,7 @@ describe('[Module 5] general application tests', () => {
     expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('should render right subtitle', () => {
+  it('проверка на наличие правильного подзаголовка', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
     const [
       {
