@@ -32,7 +32,7 @@ export class ProductsService {
   public getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(`/products`);
   }
-  public getProduct(id: string): Observable<IProduct> {
+  public getProduct(id: string | null): Observable<IProduct> {
     return this.http.get<IProduct>(`/products/${id}`);
   }
 }

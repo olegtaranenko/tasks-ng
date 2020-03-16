@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ProductsRoutingModule } from './products-routing.module';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [ProductsComponent],
+  declarations: [ProductsComponent, CardComponent],
   imports: [
+    ProductsRoutingModule,
     SharedModule,
     RouterModule.forChild([
       {

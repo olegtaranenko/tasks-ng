@@ -1,4 +1,3 @@
-import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { OneProductComponent } from './one-product.component';
 import { RouterModule } from '@angular/router';
@@ -9,7 +8,6 @@ import { SharedModule } from '../../../shared/shared.module';
   declarations: [OneProductComponent],
   imports: [
     SharedModule,
-    MatIconModule,
     RouterModule.forChild([
       {
         path: '',

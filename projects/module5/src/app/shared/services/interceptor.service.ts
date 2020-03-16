@@ -14,10 +14,12 @@ export class InterceptorService implements HttpInterceptor {
 
   public intercept<T extends IRes>(req: HttpRequest<T>, next: HttpHandler): Observable<HttpResponse<T>> {
     let headers: HttpHeaders = req.headers.append('Content-Type', 'application/json');
+
     const jsonReq: HttpRequest<T> = req.clone({
       headers,
       url: `${this._baseUrl}${req.url}`,
     });
+
     return next.handle(jsonReq).pipe(
       filter(this._isHttpResponse),
       map((res: HttpResponse<IRes>) => {

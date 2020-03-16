@@ -13,7 +13,7 @@
               <mat-icon>add_shopping_cart</mat-icon>
             </button>
           </div>
-          <!-- <app-star-rating [rate]="product.rating"></app-star-rating> -->
+          <app-star-rating [rate]="product.rating"></app-star-rating>
         </div>
         <div class="main-cont-description">
           <div class="main-cont-description-descr">
@@ -30,7 +30,7 @@
 
         <div *ngFor="let feedback of (product$ | async)?.feedbacks" class="main-comments-review">
           <div class="main-comments-review-text">
-            <!-- <app-star-rating [rate]="feedback.rate"></app-star-rating> -->
+            <app-star-rating [rate]="feedback.rate"></app-star-rating>
             {{ feedback.description }}
             <ul class="main-comments-review-text-pluses">
               Достоинства:

@@ -5,25 +5,25 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor.service';
 import { BASE_URL_TOKEN } from '../config';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StarRatingComponent } from '../content/products/card/star-rating/star-rating.component';
-import { CardComponent } from '../content/products/card/card.component';
 import { ImgUrlPipe } from './pipes/img-url.pipe';
 import { ProductsService } from './services/products.service';
 import { environment } from '../../environments/environment';
 import { RouterModule } from '@angular/router';
+import { InfiniteScrollComponent } from './components/infinite-scroll/infinite-scroll.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
-  declarations: [StarRatingComponent, CardComponent, ImgUrlPipe],
+  declarations: [StarRatingComponent, ImgUrlPipe, InfiniteScrollComponent],
   imports: [ReactiveFormsModule, MatIconModule, HttpClientModule, CommonModule, RouterModule],
   exports: [
     ReactiveFormsModule,
     RouterModule,
+    InfiniteScrollComponent,
     MatIconModule,
     HttpClientModule,
     CommonModule,
     ImgUrlPipe,
     StarRatingComponent,
-    CardComponent,
   ],
   providers: [],
 })
