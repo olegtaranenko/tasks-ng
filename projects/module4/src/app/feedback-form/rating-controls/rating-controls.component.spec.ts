@@ -29,7 +29,7 @@ describe('[Moдуль 4] Выставление рейтинга', () => {
     fixture.detectChanges();
   }));
   // ---------------Без значения-----------
-  it('проверка на отображение по умолчанию', () => {
+  it('компонент должен по умолчанию отобразить 5 серых звезд ', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
     expect(stars.length).toEqual(5);
@@ -39,7 +39,7 @@ describe('[Moдуль 4] Выставление рейтинга', () => {
     expect(stars[3].classes.selected).toBeFalsy();
     expect(stars[4].classes.selected).toBeFalsy();
   });
-  it('проверка на подсветку звезд при mouseenter', () => {
+  it('компонент должен подсвечивать звезды желтым цветом при mouseenter', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
     stars[3].triggerEventHandler('mouseenter', null);
@@ -51,7 +51,7 @@ describe('[Moдуль 4] Выставление рейтинга', () => {
     expect(stars[3].classes.selected).toBeFalsy();
     expect(stars[4].classes.selected).toBeFalsy();
   });
-  it('проверка на правильную подсветку звезд при mouseleave', () => {
+  it('компонент должен убрать подсветку звезд при mouseleave', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
     stars[3].triggerEventHandler('mouseleave', null);
@@ -63,7 +63,7 @@ describe('[Moдуль 4] Выставление рейтинга', () => {
     expect(stars[3].classes.selected).toBeFalsy();
     expect(stars[4].classes.selected).toBeFalsy();
   });
-  it('проверка на подсветку звезд при click', () => {
+  it('компонент должен звезды желтыми при click', () => {
     const ratingControlsComponent: DebugElement = fixture.debugElement.query(By.directive(RatingControlsComponent));
     const stars: DebugElement[] = ratingControlsComponent.queryAll(By.css('mat-icon'));
     stars[3].triggerEventHandler('click', null);

@@ -8,10 +8,10 @@ import { BASE_URL_TOKEN } from './config';
 import { environment } from '../environments/environment';
 import { ProductsService } from './shared/services/products.service';
 import { CardComponent } from './content/products/card/card.component';
-import { StarRatingComponent } from './content/products/card/star-rating/star-rating.component';
 import { ImgUrlPipe } from './shared/pipes/img-url.pipe';
 import { InterceptorService } from './shared/services/interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
+import { StarRatingComponent } from './shared/components/star-rating/star-rating.component';
 
 describe('[Modуль 5] Общие тесты приложения', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -38,11 +38,7 @@ describe('[Modуль 5] Общие тесты приложения', () => {
     fixture.detectChanges();
   }));
 
-  it('проверка на создание компонента', () => {
-    expect(app).toBeTruthy();
-  });
-
-  it(`проверка на наличие правильного заголовка `, () => {
+  it(`компонент должен иметь правильный заголовок `, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
     const [
       {
@@ -52,7 +48,7 @@ describe('[Modуль 5] Общие тесты приложения', () => {
     expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('проверка на наличие правильного подзаголовка', () => {
+  it('компонент должен правильно интерполировать подзаголовок', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
     const [
       {

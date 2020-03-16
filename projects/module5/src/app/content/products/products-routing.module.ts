@@ -9,10 +9,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    loadChildren: () =>
-      import('./one-product/one-product.module').then(
-        mod => mod.OneProductModule,
-      ),
+    loadChildren: () => import('./one-product/one-product.module').then(mod => mod.OneProductModule),
     data: {
       state: 'product',
     },

@@ -23,7 +23,7 @@ describe('[Module 4] Общие тесты приложения', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`проверка на наличие правильного заголовка `, () => {
+  it(`компонент должен иметь правильный заголовок `, () => {
     const title = fixture.debugElement.query(By.css('.toolbar span'));
     const [
       {
@@ -33,7 +33,7 @@ describe('[Module 4] Общие тесты приложения', () => {
     expect(textContent.trim()).toEqual('Курс по Angular');
   });
 
-  it('проверка на наличие правильного подзаголовка', () => {
+  it('компонент должен правильно интерполировать подзаголовок', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
     const [
       {
