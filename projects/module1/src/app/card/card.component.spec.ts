@@ -20,19 +20,19 @@ describe('[Moдуль 1] Карточка продукта', () => {
     spyOn(component, 'addProduct').and.callThrough();
     addToCartSpy = spyOn(component.addToCart, 'emit').and.callThrough();
   });
-  it('проверка наналичие метода addProduct и Output свойства addToCart', () => {
+  it('компонент должен иметь метод addProduct и Output свойства addToCart', () => {
     expect(component.addToCart).toBeTruthy();
     expect(component.addProduct).toBeTruthy();
   });
 
-  it('проверка на наличие правильной иконки  ', () => {
+  it('иконка продукта должна быть add_shopping_cart', () => {
     const icon = fixture.debugElement.query(By.directive(MatIcon));
     expect(icon).toBeTruthy();
     const [{ nativeNode }] = icon.childNodes;
     expect(nativeNode.textContent.trim()).toEqual('add_shopping_cart');
   });
 
-  it('проверка на правильное значение поля img', () => {
+  it('тег img должен иметь правильное связывание свойств src и alt', () => {
     const imgEl = fixture.debugElement.query(By.css('.card-img-top'));
     expect(imgEl).toBeTruthy();
     const {
@@ -42,7 +42,7 @@ describe('[Moдуль 1] Карточка продукта', () => {
     expect(imgEl.attributes.src?.trim()).toEqual(url);
     expect(imgEl.attributes.alt?.trim()).toEqual(name);
   });
-  it('проверка на правильное значение поля title', () => {
+  it('тег с селектором .card-title должен правильно интерполировать title', () => {
     const titleEL = fixture.debugElement.query(By.css('.card-title'));
     expect(titleEL).toBeTruthy();
     const { name } = component?.product;
@@ -50,7 +50,7 @@ describe('[Moдуль 1] Карточка продукта', () => {
     expect(titleNode.textContent.trim()).toEqual(name);
   });
 
-  it('проверка на правильное значение поля price', () => {
+  it('тег с селектором .price-text должен правильно интерполировать price', () => {
     const { price } = component?.product;
     const priceEl = fixture.debugElement.query(By.css('.price-text'));
     expect(price).toBeTruthy();
@@ -58,7 +58,7 @@ describe('[Moдуль 1] Карточка продукта', () => {
     expect(priceNode.textContent.trim()).toEqual(price.toString());
   });
 
-  it('проверка на правильную обработку при клике на иконку', () => {
+  it('клик на иконку "Добавить в корзину" должен вызывать метод addProduct()', () => {
     const icon = fixture.debugElement.query(By.directive(MatIcon));
     icon.triggerEventHandler('click', null);
     expect(component.addProduct).toHaveBeenCalledBefore(addToCartSpy);

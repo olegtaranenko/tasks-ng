@@ -1,16 +1,16 @@
 <div *ngIf="product$ | async as product" class="container one-product-wrap">
   <div class="title">
-    <a>{{ product.name }}</a>
+    <a class="product-title">{{ product.name }}</a>
   </div>
   <div class="one-product">
     <div class="main">
       <div class="main-cont">
         <div class="main-cont-info">
-          <img class="main-cont-info-img" [src]="product.images[0].url" [alt]="product.name" />
+          <img class="main-cont-info-img" [src]="product.images | imgUrl" [alt]="product.name" />
           <div class="main-cont-info-price">
-            € {{ product.price }}
-            <button class="main-cont-info-price-btn" (click)="addProduct()">
-              <mat-icon>add_shopping_cart</mat-icon>
+            {{ product.price | currency: 'RUB':'symbol-narrow' }}
+            <button class="main-cont-info-price-btn">
+              <mat-icon class="btn-icon" (click)="addProduct()">add_shopping_cart</mat-icon>
             </button>
           </div>
           <app-star-rating [rate]="product.rating"></app-star-rating>
@@ -30,7 +30,7 @@
 
         <div *ngFor="let feedback of (product$ | async)?.feedbacks" class="main-comments-review">
           <div class="main-comments-review-text">
-            <app-star-rating [rate]="feedback.rate"></app-star-rating>
+            <app-star-rating class="feedback-rate" [rate]="feedback.rate"></app-star-rating>
             {{ feedback.description }}
             <ul class="main-comments-review-text-pluses">
               Достоинства:

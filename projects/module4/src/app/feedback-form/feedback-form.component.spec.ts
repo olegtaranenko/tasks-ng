@@ -25,23 +25,23 @@ describe('[Moдуль 4] Форма для отзывов', () => {
     createFeedbackSpy = spyOn(component.createFeedback, 'emit').and.callThrough();
   });
 
-  it('проверка наналичие метода createFeedback и Output свойства save ', () => {
+  it('компонент должен иметь метод createFeedback и Output свойства save ', () => {
     expect(component.save).toBeTruthy();
     expect(component.createFeedback).toBeTruthy();
   });
 
-  it('проверка на правильную обработку при клике на кнопку "Оставить отзыв"', () => {
+  it('клик на кнопку "Оставить отзыв" должен вызывать метод save()', () => {
     const btn = fixture.debugElement.query(By.css('.feedback-btn-control'));
     btn.triggerEventHandler('click', null);
     expect(component.save).toHaveBeenCalledBefore(createFeedbackSpy);
     expect(component.createFeedback.emit).toHaveBeenCalled();
   });
 
-  it('проверка на валидность пустой формы', () => {
+  it('форма должна быть не пустой', () => {
     expect(component.feedbackForm.valid).toBeFalsy();
   });
 
-  it('проверка на валидацию поля description в форме', () => {
+  it('поле description в форме должно быть валидным', () => {
     const description = component.feedbackForm.controls.description;
     expect(description.valid).toBeFalsy();
 
@@ -52,7 +52,7 @@ describe('[Moдуль 4] Форма для отзывов', () => {
     expect(description.hasError('minLength')).toBeFalsy();
   });
 
-  it('проверка на валидацию поля advantages в форме', () => {
+  it('поле advantages в форме должно быть валидным', () => {
     const advantages = component.feedbackForm.controls.advantages;
     expect(advantages.valid).toBeFalsy();
 
@@ -63,7 +63,7 @@ describe('[Moдуль 4] Форма для отзывов', () => {
     expect(advantages.hasError('minLength')).toBeFalsy();
   });
 
-  it('проверка на валидацию поля limitations в форме', () => {
+  it('поле limitations в форме должно быть валидным', () => {
     const limitations = component.feedbackForm.controls.limitations;
     expect(limitations.valid).toBeFalsy();
 

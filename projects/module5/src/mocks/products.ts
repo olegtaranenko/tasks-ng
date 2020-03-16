@@ -1,5 +1,34 @@
 import { IProduct } from '../app/shared/services/products.service';
-
+export interface IFeedback {
+  rateControl: number | null;
+  advantages: string;
+  limitations: string;
+  description: string;
+  _id: string;
+}
+export const feedbacks: IFeedback[] = [
+  {
+    _id: '5e551fb7efcd4e00172bf316',
+    advantages: 'tyey',
+    limitations: 'rtyr',
+    description: 'rtyr',
+    rateControl: 2,
+  },
+  {
+    _id: '5e551fc1efcd4e00172bf317',
+    advantages: 'rty',
+    limitations: 'rtyr',
+    description: 'rtyr',
+    rateControl: 5,
+  },
+  {
+    _id: '5e551fe7efcd4e00172bf318',
+    advantages: 'ryhrty',
+    limitations: 'tyyt',
+    description: 'tyyt',
+    rateControl: 4,
+  },
+];
 export const products: IProduct[] = [
   {
     _id: '5e4d5abe3829ab5fadc44c88',

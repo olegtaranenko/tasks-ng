@@ -1,9 +1,8 @@
-import { ProductsService } from './../../../../../../module5/src/app/shared/services/products.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { IProduct } from '../../../shared/services/products.service';
+import { IProduct, ProductsService } from '../../../shared/services/products.service';
 
 @Injectable()
 export class ProductGuard {

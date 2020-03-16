@@ -19,28 +19,28 @@ describe('[Модуль 4] Карточка отзыва', () => {
     fixture.detectChanges();
   });
 
-  it('проверка на правильное значение поля description', () => {
+  it('тег с селектором .description должен правильно интерполировать description', () => {
     const commentEL = fixture.debugElement.query(By.css('.description'));
     expect(commentEL).toBeTruthy();
     const { description } = component?.feedback;
     const [{ nativeNode: commentNode }] = commentEL.childNodes;
     expect(commentNode.textContent.trim()).toEqual(description);
   });
-  it('проверка на правильное значение поля advantages', () => {
+  it('тег с селектором .advantages должен правильно интерполировать advantages', () => {
     const advantagesEL = fixture.debugElement.query(By.css('.advantages'));
     expect(advantagesEL).toBeTruthy();
     const { advantages } = component?.feedback;
     const [{ nativeNode: advantagesNode }] = advantagesEL.childNodes;
     expect(advantagesNode.textContent.trim()).toEqual(advantages);
   });
-  it('проверка на правильное значение поля limitations', () => {
+  it('тег с селектором .limitations должен правильно интерполировать limitations', () => {
     const limitationsEL = fixture.debugElement.query(By.css('.limitations'));
     expect(limitationsEL).toBeTruthy();
     const { limitations } = component?.feedback;
     const [{ nativeNode: limitationsNode }] = limitationsEL.childNodes;
     expect(limitationsNode.textContent.trim()).toEqual(limitations);
   });
-  it('должен включать в себя компонент app-star-rating ', () => {
+  it('компонент должен включать в себя компонент app-star-rating ', () => {
     const starRatingComponent = fixture.debugElement.query(By.directive(StarRatingComponent));
     expect(starRatingComponent).toBeTruthy();
   });
