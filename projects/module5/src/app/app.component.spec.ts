@@ -15,7 +15,6 @@ import { StarRatingComponent } from './shared/components/star-rating/star-rating
 
 describe('[Modуль 5] Общие тесты приложения', () => {
   let fixture: ComponentFixture<AppComponent>;
-  let app: AppComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe, HeaderComponent],
@@ -34,7 +33,6 @@ describe('[Modуль 5] Общие тесты приложения', () => {
       ],
     });
     fixture = TestBed.createComponent(AppComponent);
-    app = fixture.componentInstance;
     fixture.detectChanges();
   }));
 

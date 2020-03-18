@@ -1,3 +1,4 @@
+import { product } from './../mocks/products';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
@@ -51,7 +52,17 @@ describe('[Moдуль 1] Арр компонент', () => {
   it('компонент должен иметь метод addProduct', () => {
     expect(component.addProduct).toBeTruthy();
   });
-
+  it('huy', () => {
+    spyOn(component, 'addProduct');
+    (component as any).chosenProduct = product;
+    fixture.detectChanges();
+    const huy = fixture.debugElement.query(By.directive(MatIcon));
+    huy.triggerEventHandler('click', null);
+    expect(component.addProduct).toHaveBeenCalledWith((component as any)?.chosenProduct);
+  });
+  it('свойство product должно быть определено и присвоено значение product', () => {
+    expect((component as any)?.product).toEqual(product);
+  });
   it('клик на иконку "Добавить в корзину" должен вызывать метод addProduct()', () => {
     spyOn(component, 'addProduct');
     const icon = fixture.debugElement.query(By.directive(MatIcon));
