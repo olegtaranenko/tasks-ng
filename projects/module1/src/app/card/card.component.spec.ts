@@ -16,13 +16,13 @@ describe('[Moдуль 1] Карточка продукта', () => {
     });
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
-    component.product = product;
+    (component as any).product = product;
     fixture.detectChanges();
     spyOn(component as any, 'addProduct').and.callThrough();
-    addToCartSpy = spyOn(component.addToCart, 'emit').and.callThrough();
+    addToCartSpy = spyOn((component as any).addToCart, 'emit').and.callThrough();
   });
 
-  it('компонент должен иметь свойство product', () => {
+  it('компонент должен иметь свойство product и декоратор Intput этого свойства', () => {
     expect(component.hasOwnProperty('product')).toBeTruthy();
   });
 
@@ -48,20 +48,20 @@ describe('[Moдуль 1] Карточка продукта', () => {
     const {
       images: [{ url }],
       name,
-    } = component?.product;
+    } = (component as any)?.product;
     expect(imgEl.attributes.src?.trim()).toEqual(url);
     expect(imgEl.attributes.alt?.trim()).toEqual(name);
   });
   it('тег с селектором .card-title должен правильно интерполировать name', () => {
     const titleEL = fixture.debugElement.query(By.css('.card-title'));
     expect(titleEL).toBeTruthy();
-    const { name } = component?.product;
+    const { name } = (component as any)?.product;
     const [{ nativeNode: titleNode }] = titleEL.childNodes;
     expect(titleNode.textContent.trim()).toEqual(name);
   });
 
   it('тег с селектором .price-text должен правильно интерполировать price', () => {
-    const { price } = component?.product;
+    const { price } = (component as any)?.product;
     const priceEl = fixture.debugElement.query(By.css('.price-text'));
     expect(price).toBeTruthy();
     const [{ nativeNode: priceNode }] = priceEl.childNodes;
@@ -72,6 +72,6 @@ describe('[Moдуль 1] Карточка продукта', () => {
     const icon = fixture.debugElement.query(By.directive(MatIcon));
     icon.triggerEventHandler('click', null);
     expect((component as any).addProduct).toHaveBeenCalledBefore(addToCartSpy);
-    expect(component.addToCart.emit).toHaveBeenCalled();
+    expect((component as any).addToCart.emit).toHaveBeenCalled();
   });
 });
