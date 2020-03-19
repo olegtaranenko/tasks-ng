@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
+import { EventEmitter } from '@angular/core';
 import { product } from '../../mocks/products';
 
 describe('[Moдуль 1] Карточка продукта', () => {
@@ -17,12 +18,21 @@ describe('[Moдуль 1] Карточка продукта', () => {
     component = fixture.componentInstance;
     component.product = product;
     fixture.detectChanges();
-    spyOn(component, 'addProduct').and.callThrough();
+    spyOn(component as any, 'addProduct').and.callThrough();
     addToCartSpy = spyOn(component.addToCart, 'emit').and.callThrough();
   });
-  it('компонент должен иметь метод addProduct и Output свойства addToCart', () => {
-    expect(component.addToCart).toBeTruthy();
-    expect(component.addProduct).toBeTruthy();
+
+  it('компонент должен иметь свойство product', () => {
+    expect(component.hasOwnProperty('product')).toBeTruthy();
+  });
+
+  it('компонент должен иметь свойство addToCart и декоратор Output этого свойства', () => {
+    expect(component.hasOwnProperty('addToCart')).toBeTruthy();
+    expect((component as any)?.addToCart).toBeInstanceOf(EventEmitter);
+  });
+
+  it('компонент должен иметь метод addProduct', () => {
+    expect((component as any).addProduct).toBeTruthy();
   });
 
   it('иконка продукта должна быть add_shopping_cart', () => {
@@ -42,7 +52,7 @@ describe('[Moдуль 1] Карточка продукта', () => {
     expect(imgEl.attributes.src?.trim()).toEqual(url);
     expect(imgEl.attributes.alt?.trim()).toEqual(name);
   });
-  it('тег с селектором .card-title должен правильно интерполировать title', () => {
+  it('тег с селектором .card-title должен правильно интерполировать name', () => {
     const titleEL = fixture.debugElement.query(By.css('.card-title'));
     expect(titleEL).toBeTruthy();
     const { name } = component?.product;
@@ -61,7 +71,7 @@ describe('[Moдуль 1] Карточка продукта', () => {
   it('клик на иконку "Добавить в корзину" должен вызывать метод addProduct()', () => {
     const icon = fixture.debugElement.query(By.directive(MatIcon));
     icon.triggerEventHandler('click', null);
-    expect(component.addProduct).toHaveBeenCalledBefore(addToCartSpy);
+    expect((component as any).addProduct).toHaveBeenCalledBefore(addToCartSpy);
     expect(component.addToCart.emit).toHaveBeenCalled();
   });
 });

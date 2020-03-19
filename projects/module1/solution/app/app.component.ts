@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IProduct, product } from '../mocks/products';
-
+import { IProduct, product } from 'projects/module1/src/mocks/products';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +8,6 @@ import { IProduct, product } from '../mocks/products';
 export class AppComponent {
   public product: IProduct = product;
   public chosenProduct!: IProduct;
-  public title = '1. Интерполяция и связывание';
 
   public addProduct(chosenProduct: IProduct): void {
     this.chosenProduct = chosenProduct;
