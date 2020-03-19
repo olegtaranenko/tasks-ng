@@ -26,7 +26,7 @@ describe('[Moдуль 1] Общие тесты приложения', () => {
     expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('компонент должен правильно интерполировать подзаголовок', () => {
+  it('компонент должен иметь правильное название', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
     const [
       {
@@ -52,18 +52,18 @@ describe('[Moдуль 1] Арр компонент', () => {
   it('компонент должен иметь метод addProduct', () => {
     expect((component as any)?.addProduct).toBeTruthy();
   });
+  it('свойство chosenProduct должно быть определено и присваиваться при добавлении продукта', () => {
+    const icon = fixture.debugElement.query(By.directive(MatIcon));
+    icon.triggerEventHandler('click', null);
+    expect((component as any).chosenProduct).toBeDefined();
+  });
   it('свойство product должно быть определено и присвоено значение product', () => {
     expect((component as any)?.product).toEqual(product);
   });
   it('клик на иконку "Добавить в корзину" должен вызывать метод addProduct()', () => {
-    spyOn(component, 'addProduct');
+    spyOn(component as any, 'addProduct');
     const icon = fixture.debugElement.query(By.directive(MatIcon));
     icon.triggerEventHandler('click', null);
     expect((component as any)?.addProduct).toHaveBeenCalled();
-  });
-  it('свойство chosenProduct должно быть определено и присваиваться при обновлении продукта', () => {
-    const icon = fixture.debugElement.query(By.directive(MatIcon));
-    icon.triggerEventHandler('click', null);
-    expect((component as any)?.chosenProduct).toBeDefined();
   });
 });
