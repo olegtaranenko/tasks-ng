@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   public products: IProduct[] = [];
-  public title = '3. Cервисы и Http протокол';
   public products$!: Observable<IProduct[]>;
   constructor(private productsService: ProductsService) {}
 
