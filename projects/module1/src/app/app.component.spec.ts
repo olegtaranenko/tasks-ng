@@ -50,15 +50,7 @@ describe('[Moдуль 1] Арр компонент', () => {
     fixture.detectChanges();
   }));
   it('компонент должен иметь метод addProduct', () => {
-    expect(component.addProduct).toBeTruthy();
-  });
-  it('huy', () => {
-    spyOn(component, 'addProduct');
-    (component as any).chosenProduct = product;
-    fixture.detectChanges();
-    const huy = fixture.debugElement.query(By.directive(MatIcon));
-    huy.triggerEventHandler('click', null);
-    expect(component.addProduct).toHaveBeenCalledWith((component as any)?.chosenProduct);
+    expect((component as any)?.addProduct).toBeTruthy();
   });
   it('свойство product должно быть определено и присвоено значение product', () => {
     expect((component as any)?.product).toEqual(product);
@@ -67,6 +59,11 @@ describe('[Moдуль 1] Арр компонент', () => {
     spyOn(component, 'addProduct');
     const icon = fixture.debugElement.query(By.directive(MatIcon));
     icon.triggerEventHandler('click', null);
-    expect(component.addProduct).toHaveBeenCalled();
+    expect((component as any)?.addProduct).toHaveBeenCalled();
+  });
+  it('свойство chosenProduct должно быть определено и присваиваться при обновлении продукта', () => {
+    const icon = fixture.debugElement.query(By.directive(MatIcon));
+    icon.triggerEventHandler('click', null);
+    expect((component as any)?.chosenProduct).toBeDefined();
   });
 });
