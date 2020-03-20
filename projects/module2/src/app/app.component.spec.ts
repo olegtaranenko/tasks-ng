@@ -36,3 +36,21 @@ describe('[Moдуль 2] Общие тесты приложения', () => {
     expect(textContent.trim()).toContain('2. Директивы и пайпы');
   });
 });
+describe('[Moдуль 2] Арр компонент', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, CardComponent, ImgUrlPipe, StarRatingComponent],
+      imports: [MatIconModule],
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    spyOn(component as any, 'addProduct').and.callThrough();
+  }));
+
+  it('компонент должен иметь метод addProduct', () => {
+    expect((component as any)?.addProduct).toBeTruthy();
+  });
+});
