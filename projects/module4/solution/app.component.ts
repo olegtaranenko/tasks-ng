@@ -8,7 +8,6 @@ import { IFeedback } from '../src/mocks/feedbacks';
 })
 export class AppComponent {
   public feedbacks: IFeedback[] = [];
-  public title = '4. Формы и свои элементы форм';
   public getFormInfo(value: IFeedback) {
     this.feedbacks.push(value);
   }

@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../../shared/services/products.service';
+import { IProduct } from 'projects/module1/src/mocks/products';
 
 @Component({
   selector: 'app-one-product',
@@ -8,9 +10,8 @@ import { ProductsService } from '../../../shared/services/products.service';
   styleUrls: ['./one-product.component.sass'],
 })
 export class OneProductComponent implements OnInit {
-  public product$: any;
-  public feedback$: any;
-  public productId = '';
+  public product$!: Observable<IProduct>;
+  public productId!: string;
   constructor(private route: ActivatedRoute, private productsService: ProductsService) {}
 
   @Output()
