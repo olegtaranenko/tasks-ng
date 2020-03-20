@@ -49,7 +49,7 @@
       </g>
     </svg>
 
-    <span>4. Формы и свои элементы форм</span>
+    <span>{{ title }}</span>
 
     <svg
       id="rocket-smoke"
@@ -71,13 +71,13 @@
 
   <!-- Content -->
   <div class="content-wrap">
-    <app-feedback-form class="content-block"></app-feedback-form>
+    <app-feedback-form class="content-block" (createFeedback)="getFormInfo($event)"></app-feedback-form>
 
-    <div class="feedbacks">
-      <div>
-        <app-feedback-card></app-feedback-card>
+    <div class="feedbacks" *ngIf="feedbacks.length > 0">
+      <div *ngFor="let feedback of feedbacks">
+        <app-feedback-card [feedback]="feedback"></app-feedback-card>
       </div>
     </div>
-    <div class="no-feedbacks"><span>No feedbacks yet</span></div>
+    <div class="no-feedbacks" *ngIf="feedbacks.length === 0"><span>No feedbacks yet</span></div>
   </div>
 </div>
