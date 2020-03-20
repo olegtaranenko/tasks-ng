@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService, IProduct } from './products.service';
+
 import { Observable } from 'rxjs';
+import { IProduct, ProductsService } from '../src/app/products.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
-    this.products$ = (this.productsService as any)?.getProducts();
+    this.products$ = this.productsService.getProducts();
   }
   public addProduct(_product: IProduct) {}
 }

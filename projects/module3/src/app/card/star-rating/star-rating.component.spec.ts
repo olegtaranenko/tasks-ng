@@ -14,6 +14,7 @@ describe('[Moдуль 3] Рейтинг продукта', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(StarRatingComponent);
     component = fixture.componentInstance;
+    // (component as any).star = star;
   }));
   it('проверка на значение null', () => {
     component.rate = null;
@@ -56,4 +57,19 @@ describe('[Moдуль 3] Рейтинг продукта', () => {
     expect(stars[3].classes['gold-star']).toBeTruthy();
     expect(stars[4].classes['gold-star']).toBeFalsy();
   });
+  // it('тег с селектором .card-title должен правильно интерполировать name', () => {
+  //   const titleEL = fixture.debugElement.query(By.css('.card-title'));
+  //   expect(titleEL).toBeTruthy();
+  //   const { name } = (component as any)?.product;
+  //   const [{ nativeNode: titleNode }] = titleEL.childNodes;
+  //   expect(titleNode.textContent.trim()).toEqual(name);
+  // });
+
+  // it('тег с селектором .stars-icon должен правильно интерполировать icon', () => {
+  //   const titleEL = fixture.debugElement.query(By.css('.stars-icon mat-icon'));
+  //   expect(titleEL).toBeDefined();
+  //   const { icon } = (component as any)?.star;
+  //   const [{ nativeNode: titleNode }] = titleEL.childNodes;
+  //   expect(titleNode.textContent.trim()).toEqual(icon);
+  // });
 });

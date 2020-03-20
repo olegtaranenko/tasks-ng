@@ -84,21 +84,13 @@ describe('[Moдуль 3] Арр компонент', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
-  it('компонент должен иметь метод addProduct', () => {
-    expect((component as any)?.addProduct).toBeTruthy();
-  });
-  // it('свойство chosenProduct должно быть определено и присваиваться при добавлении продукта', () => {
-  //   const icon = fixture.debugElement.query(By.directive(MatIcon));
-  //   icon.triggerEventHandler('click', null);
-  //   expect((component as any).chosenProduct).toBeDefined();
-  // });
   it('свойство products должно быть определено', () => {
     expect((component as any)?.products).toBeDefined();
   });
-  // it('клик на иконку "Добавить в корзину" должен вызывать метод addProduct()', () => {
-  //   spyOn(component as any, 'addProduct');
-  //   const icon = fixture.debugElement.query(By.directive(MatIcon));
-  //   icon.triggerEventHandler('click', null);
-  //   expect((component as any)?.addProduct).toHaveBeenCalled();
-  // });
+  it('компонент должен иметь метод addProduct', () => {
+    expect((component as any)?.addProduct).toBeTruthy();
+  });
+  it('свойство productsService должно быть определено', () => {
+    expect((component as any)?.productsService).toBeDefined();
+  });
 });
