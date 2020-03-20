@@ -49,7 +49,7 @@ describe('[Moдуль 3] Общие тесты приложения', () => {
     expect(textContent).toEqual('Курс по Angular');
   });
 
-  it('компонент должен правильно интерполировать подзаголовок', () => {
+  it('компонент должен иметь правильное название', () => {
     const subTitle = fixture.debugElement.query(By.css('.content span'));
     const [
       {
@@ -57,5 +57,40 @@ describe('[Moдуль 3] Общие тесты приложения', () => {
       },
     ] = subTitle.childNodes;
     expect(textContent.trim()).toContain('3. Cервисы и Http протокол');
+  });
+});
+
+describe('[Moдуль 3] Арр компонент', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe],
+      imports: [HttpClientModule],
+      providers: [
+        ProductsService,
+        {
+          provide: BASE_URL_TOKEN,
+          useValue: environment.baseUrl,
+        },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: InterceptorService,
+          multi: true,
+        },
+      ],
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+  it('свойство products должно быть определено', () => {
+    expect((component as any)?.products).toBeDefined();
+  });
+  it('компонент должен иметь метод addProduct', () => {
+    expect((component as any)?.addProduct).toBeTruthy();
+  });
+  it('свойство productsService должно быть определено', () => {
+    expect((component as any)?.productsService).toBeDefined();
   });
 });

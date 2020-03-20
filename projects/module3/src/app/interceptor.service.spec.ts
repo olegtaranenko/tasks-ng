@@ -31,7 +31,7 @@ describe('[Moдуль 3] Интерсептор ', () => {
     [ProductsService, BASE_URL_TOKEN],
     (productsService: ProductsService, baseUrl: string) => {
       const url = `${baseUrl}/products`;
-      productsService.getProducts().subscribe();
+      (productsService as any)?.getProducts().subscribe();
       const httpRequest: TestRequest = httpMocked.expectOne({
         method: 'GET',
         url,
@@ -44,7 +44,7 @@ describe('[Moдуль 3] Интерсептор ', () => {
     [ProductsService, BASE_URL_TOKEN],
     (productsService: ProductsService, baseUrl: string) => {
       const url = `${baseUrl}/products`;
-      productsService.getProducts().subscribe(response => {
+      (productsService as any)?.getProducts().subscribe((response: any) => {
         expect(response).toEqual(products);
       });
 
