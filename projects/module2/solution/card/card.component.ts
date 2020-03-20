@@ -11,7 +11,7 @@ export class CardComponent {
   public product!: IProduct;
 
   @Output()
-  public addToCart = new EventEmitter();
+  public addToCart: EventEmitter<void> = new EventEmitter();
 
   public addProduct(): void {
     this.addToCart.emit();

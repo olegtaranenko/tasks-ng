@@ -8,5 +8,7 @@ import { products, IProduct } from '../src/mocks/products';
 })
 export class AppComponent {
   public products: IProduct[] = products;
-  title = '2. Директивы и пайпы';
+  public addProduct(): void {
+    console.log('added');
+  }
 }
