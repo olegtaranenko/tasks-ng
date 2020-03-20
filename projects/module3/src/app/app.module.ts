@@ -12,10 +12,11 @@ import { BASE_URL_TOKEN } from './config';
 import { environment } from '../environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, StarRatingComponent, CardComponent, ImgUrlPipe],
-  imports: [BrowserModule, BrowserAnimationsModule, MatIconModule, HttpClientModule],
+  imports: [BrowserModule, BrowserAnimationsModule, MatIconModule, HttpClientModule, CommonModule],
   providers: [
     ProductsService,
     {
