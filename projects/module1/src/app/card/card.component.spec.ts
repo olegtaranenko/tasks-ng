@@ -65,6 +65,7 @@ describe('[Moдуль 1] Карточка продукта', () => {
     const priceEl = fixture.debugElement.query(By.css('.price-text'));
     expect(price).toBeTruthy();
     const [{ nativeNode: priceNode }] = priceEl.childNodes;
+    console.log(priceNode);
     expect(priceNode.textContent.trim()).toEqual(price.toString());
   });
 
